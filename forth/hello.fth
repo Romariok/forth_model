@@ -1,0 +1,3 @@
+:_start
+." Hello, world!"
+;
