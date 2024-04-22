@@ -1,3 +1,5 @@
+variable hello Hello, World!
 :_start
-." Hello, world!"
+@ hello 
+.
 ;
