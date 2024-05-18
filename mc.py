@@ -155,40 +155,34 @@ mc_memory = [
     [
         MUX.MPC_INC,
         Latch.MPC,
-        MUX.RS_TOS,
-        MUX.RSP_INC,
-        Latch.RSP,
-        Latch.RS,
         MUX.SP_DEC,
         Latch.SP,
-    ],
-    [
-        MUX.MPC_INC,
-        Latch.MPC,
         MUX.RS_TOS,
         MUX.RSP_INC,
         Latch.RSP,
         Latch.RS,
-        MUX.SP_INC,
-        Latch.SP,
     ],
-    [MUX.MPC_INC, Latch.MPC, MUX.TOS_RETURN_STACK, Latch.TOP, MUX.SP_INC, Latch.SP],
     [
         MUX.MPC_INC,
         Latch.MPC,
-        MUX.TOS_RETURN_STACK,
-        Latch.TOP,
         MUX.SP_INC,
         Latch.SP,
-        MUX.RSP_DEC,
-        Latch.RSP,
     ],
-    [MUX.MPC_ZERO, Latch.MPC, MUX.TOS_RETURN_STACK, Latch.NEXT, MUX.RSP_DEC, Latch.RSP],
-    # 32 LOAD
+    [
+        MUX.MPC_ZERO,
+        Latch.MPC,
+        MUX.SP_INC,
+        Latch.SP,
+        MUX.TOS_RETURN_STACK,
+        Latch.TOP,
+        MUX.RSP_DEC,
+        Latch.RSP
+    ],
+    # 30 LOAD
     [MUX.MPC_ZERO, Latch.MPC, MEMORY.RD, MUX.TOS_MEMORY, Latch.TOP],
-    # 33 STORE
+    # 31 STORE
     [MUX.MPC_ZERO, Latch.MPC, MEMORY.WR, MUX.SP_DOUBLE_DEC, Latch.SP],
-    # 34 SWAP
+    # 32 SWAP
     [
         MUX.MPC_INC,
         Latch.MPC,
@@ -259,10 +253,10 @@ def opcode_to_mpc(opcode: Opcode) -> int:
         case Opcode.OVER:
             return 27
         case Opcode.LOAD:
-            return 32
+            return 30
         case Opcode.STORE:
-            return 33
+            return 31
         case Opcode.SWAP:
-            return 34
+            return 32
         case _:
             raise Exception("Unknown opcode: " + opcode)

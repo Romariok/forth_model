@@ -1,11 +1,14 @@
 from __future__ import annotations
-import sys
+
 import re
-from isa import Term, Instruction, write_code, Opcode, Arg, ArgType
+import sys
+
+from isa import Arg, ArgType, Instruction, Opcode, Term, write_code
 
 variables = {}
 variable_current_address = 0
 functions = {}
+memory = {}
 
 
 def clear_line(line) -> str:
@@ -57,16 +60,12 @@ def set_cycles(terms: list[Term]) -> None:
             case "do":
                 blocks_loop.append(term.number)
             case "loop":
-                assert len(blocks_loop) > 0, "Unbalanced DO-LOOP at " + str(
-                    term.number
-                )
+                assert len(blocks_loop) > 0, "Unbalanced DO-LOOP at " + str(term.number)
                 term.operand = blocks_loop.pop() - 1
             case "begin":
                 blocks_until.append(term.number + 1)
             case "until":
-                assert len(blocks_until) > 0, "Unbalanced BEGIN-UNTIL at " + str(
-                    term.number
-                )
+                assert len(blocks_until) > 0, "Unbalanced BEGIN-UNTIL at " + str(term.number)
                 term.operand = blocks_until.pop() - 1
             case _:
                 continue
@@ -107,9 +106,7 @@ def line_to_term(pos: int, char_seq: str) -> [int, list[Term]]:
             or is_console_operation(code_char_seq)
         ):
             if len(terms) != 0 and terms[-1].name[:2] == '."':
-                new_term_name = (
-                    terms[-1].name + char_seq[char_seq.find(".") + 2 :] + '"'
-                )
+                new_term_name = terms[-1].name + char_seq[char_seq.find(".") + 2 :] + '"'
                 terms[-1].name = new_term_name
             else:
                 terms.append(Term(pos, code_char_seq))
@@ -152,29 +149,28 @@ def set_variables(terms: list[Term]) -> None:
     global variable_current_address
     for term_index, term in enumerate(terms):
         if term.name == "variable":
-            assert is_word(
-                terms[term_index + 1].name
-            ), f"Unaccaptable variabel defenition at {term.number}"
-            assert (
-                terms[term_index + 1].name not in variables
-            ), f"Variable already defined at {term.number}"
+            assert is_word(terms[term_index + 1].name), f"Unaccaptable variabel defenition at {term.number}"
+            assert terms[term_index + 1].name not in variables, f"Variable already defined at {term.number}"
             variables[terms[term_index + 1].name] = variable_current_address
             variable_current_address += 1
             terms[term_index + 1].converted = True
             if term_index + 3 < len(terms) and terms[term_index + 3].name == "allocate":
-                set_allocate(terms, term_index+3)
+                set_allocate(terms, term_index + 3)
+
 
 def set_allocate(terms: list[Term], term_num: int) -> None:
     global variable_current_address
     term = terms[term_num]
     terms[term_num - 1].converted = True
+    memory[variable_current_address - 1] = int(terms[term_num - 1].name)
     try:
-        allocate_size = int(terms[term_num- 1].name)
+        allocate_size = int(terms[term_num - 1].name) + 1
         assert 1 <= allocate_size <= 100, "Incorrect allocate size at " + str(term.word_number - 1)
         variable_current_address += allocate_size
     except ValueError:
         raise Exception("Incorrect allocate size at " + str(term.word_number - 1))
-    
+
+
 def set_conditional(terms: list[Term]) -> None:
     """Проверяет валидность условных операторов"""
     blocks = []
@@ -190,6 +186,7 @@ def set_conditional(terms: list[Term]) -> None:
             if last_if.name == "else":
                 last_else = last_if
                 assert len(blocks) > 0, "Unbalanced IF-ELSE-THEN at " + str(term.number)
+                last_if = blocks.pop()
                 last_else.operand = term.number
                 last_if.operand = last_else.number
             else:
@@ -205,13 +202,14 @@ def code_correctness_check(terms: list[Term]):
     set_conditional(terms)
     replace_variables_and_functions(terms)
 
+
 def fix_addresses(term_instructions: list[list[Instruction]]) -> list[Instruction]:
     final_instructions = []
     term_lens = [0]
-    
+
     for instr_num, instruction in enumerate(term_instructions):
         term_lens.append(term_lens[instr_num] + len(instruction))
-        
+
     for term_instruction in term_instructions:
         if term_instruction is not None:
             for instruction in term_instruction:
@@ -220,9 +218,10 @@ def fix_addresses(term_instructions: list[list[Instruction]]) -> list[Instructio
                         instruction.arg[param_num].value = term_lens[param.value] - 1
                         instruction.arg[param_num].argType = ArgType.CONST
                 final_instructions.append(instruction)
-                
+
     return final_instructions
-    
+
+
 def term_to_instruction(term: Term) -> list(Instruction):
     """Переводит токен в инструкции"""
     instructions = {
@@ -250,7 +249,7 @@ def term_to_instruction(term: Term) -> list(Instruction):
         "call": [Instruction(Opcode.CALL, [Arg(ArgType.UNDEFINED, None)])],
         ":": [Instruction(Opcode.JMP, [Arg(ArgType.UNDEFINED, None)])],
         ";": [Instruction(Opcode.RET, [])],
-        "if": [Instruction(Opcode.ZJMP, [Arg(ArgType.UNDEFINED, None)])],
+        "if": [Instruction(Opcode.ZJMP, [Arg(ArgType.UNDEFINED, None)]), Instruction(Opcode.DROP, [])],
         "else": [Instruction(Opcode.JMP, [Arg(ArgType.UNDEFINED, None)])],
         "then": [],
         "!": [Instruction(Opcode.STORE, [])],
@@ -293,10 +292,12 @@ def term_to_instruction(term: Term) -> list(Instruction):
 
     return instructions
 
+
 def terms_to_instructions(terms: list[Term]) -> list[Instruction]:
     instructions = list(map(term_to_instruction, terms))
     instructions = fix_addresses(instructions)
     return [*instructions, Instruction(Opcode.HALT, [])]
+
 
 def translate(lines):
     terms = split_to_terms(lines)
@@ -324,7 +325,7 @@ def main(source, target):
         source = f.read().splitlines()
     code = translate(source)
 
-    write_code(target, code)
+    write_code(target, code, memory)
     print("source LoC:", len(source), "code instr:", len(code))
 
 

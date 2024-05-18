@@ -1,87 +1,414 @@
-[{"index": 0, "command": "jmp", "arg": 65},
- {"index": 1, "command": "push", "arg": 0},
- {"index": 2, "command": "push", "arg": 72},
- {"index": 3, "command": "over"},
- {"index": 4, "command": "store"},
- {"index": 5, "command": "push", "arg": 101},
- {"index": 6, "command": "over"},
- {"index": 7, "command": "push", "arg": 1},
- {"index": 8, "command": "add"},
- {"index": 9, "command": "store"},
- {"index": 10, "command": "push", "arg": 108},
- {"index": 11, "command": "over"},
- {"index": 12, "command": "push", "arg": 1},
- {"index": 13, "command": "add"},
- {"index": 14, "command": "store"},
- {"index": 15, "command": "push", "arg": 108},
- {"index": 16, "command": "over"},
- {"index": 17, "command": "push", "arg": 1},
- {"index": 18, "command": "add"},
- {"index": 19, "command": "store"},
- {"index": 20, "command": "push", "arg": 111},
- {"index": 21, "command": "over"},
- {"index": 22, "command": "push", "arg": 1},
- {"index": 23, "command": "add"},
- {"index": 24, "command": "store"},
- {"index": 25, "command": "push", "arg": 44},
- {"index": 26, "command": "over"},
- {"index": 27, "command": "push", "arg": 1},
- {"index": 28, "command": "add"},
- {"index": 29, "command": "store"},
- {"index": 30, "command": "push", "arg": 32},
- {"index": 31, "command": "over"},
- {"index": 32, "command": "push", "arg": 1},
- {"index": 33, "command": "add"},
- {"index": 34, "command": "store"},
- {"index": 35, "command": "push", "arg": 87},
- {"index": 36, "command": "over"},
- {"index": 37, "command": "push", "arg": 1},
- {"index": 38, "command": "add"},
- {"index": 39, "command": "store"},
- {"index": 40, "command": "push", "arg": 111},
- {"index": 41, "command": "over"},
- {"index": 42, "command": "push", "arg": 1},
- {"index": 43, "command": "add"},
- {"index": 44, "command": "store"},
- {"index": 45, "command": "push", "arg": 114},
- {"index": 46, "command": "over"},
- {"index": 47, "command": "push", "arg": 1},
- {"index": 48, "command": "add"},
- {"index": 49, "command": "store"},
- {"index": 50, "command": "push", "arg": 108},
- {"index": 51, "command": "over"},
- {"index": 52, "command": "push", "arg": 1},
- {"index": 53, "command": "add"},
- {"index": 54, "command": "store"},
- {"index": 55, "command": "push", "arg": 100},
- {"index": 56, "command": "over"},
- {"index": 57, "command": "push", "arg": 1},
- {"index": 58, "command": "add"},
- {"index": 59, "command": "store"},
- {"index": 60, "command": "push", "arg": 33},
- {"index": 61, "command": "over"},
- {"index": 62, "command": "push", "arg": 1},
- {"index": 63, "command": "add"},
- {"index": 64, "command": "store"},
- {"index": 65, "command": "ret"},
- {"index": 66, "command": "jmp", "arg": 82},
- {"index": 67, "command": "dup"},
- {"index": 68, "command": "push", "arg": 0},
- {"index": 69, "command": "eq"},
- {"index": 70, "command": "zjmp", "arg": 81},
- {"index": 71, "command": "swap"},
- {"index": 72, "command": "push", "arg": 1},
- {"index": 73, "command": "add"},
- {"index": 74, "command": "dup"},
- {"index": 75, "command": "load"},
- {"index": 76, "command": "push", "arg": 11},
- {"index": 77, "command": "emit"},
- {"index": 78, "command": "swap"},
- {"index": 79, "command": "push", "arg": 1},
- {"index": 80, "command": "sub"},
- {"index": 81, "command": "call", "arg": 66},
- {"index": 82, "command": "ret"},
- {"index": 83, "command": "call", "arg": 0},
- {"index": 84, "command": "push", "arg": 13},
- {"index": 85, "command": "call", "arg": 66},
- {"index": 86, "command": "halt"}]
+{
+    "memory": {
+        "0": 13
+    },
+    "code": [
+        {
+            "index": 0,
+            "command": "jmp",
+            "arg": 67
+        },
+        {
+            "index": 1,
+            "command": "push",
+            "arg": 0
+        },
+        {
+            "index": 2,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 3,
+            "command": "add"
+        },
+        {
+            "index": 4,
+            "command": "dup"
+        },
+        {
+            "index": 5,
+            "command": "push",
+            "arg": 72
+        },
+        {
+            "index": 6,
+            "command": "store"
+        },
+        {
+            "index": 7,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 8,
+            "command": "add"
+        },
+        {
+            "index": 9,
+            "command": "dup"
+        },
+        {
+            "index": 10,
+            "command": "push",
+            "arg": 101
+        },
+        {
+            "index": 11,
+            "command": "store"
+        },
+        {
+            "index": 12,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 13,
+            "command": "add"
+        },
+        {
+            "index": 14,
+            "command": "dup"
+        },
+        {
+            "index": 15,
+            "command": "push",
+            "arg": 108
+        },
+        {
+            "index": 16,
+            "command": "store"
+        },
+        {
+            "index": 17,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 18,
+            "command": "add"
+        },
+        {
+            "index": 19,
+            "command": "dup"
+        },
+        {
+            "index": 20,
+            "command": "push",
+            "arg": 108
+        },
+        {
+            "index": 21,
+            "command": "store"
+        },
+        {
+            "index": 22,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 23,
+            "command": "add"
+        },
+        {
+            "index": 24,
+            "command": "dup"
+        },
+        {
+            "index": 25,
+            "command": "push",
+            "arg": 111
+        },
+        {
+            "index": 26,
+            "command": "store"
+        },
+        {
+            "index": 27,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 28,
+            "command": "add"
+        },
+        {
+            "index": 29,
+            "command": "dup"
+        },
+        {
+            "index": 30,
+            "command": "push",
+            "arg": 44
+        },
+        {
+            "index": 31,
+            "command": "store"
+        },
+        {
+            "index": 32,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 33,
+            "command": "add"
+        },
+        {
+            "index": 34,
+            "command": "dup"
+        },
+        {
+            "index": 35,
+            "command": "push",
+            "arg": 32
+        },
+        {
+            "index": 36,
+            "command": "store"
+        },
+        {
+            "index": 37,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 38,
+            "command": "add"
+        },
+        {
+            "index": 39,
+            "command": "dup"
+        },
+        {
+            "index": 40,
+            "command": "push",
+            "arg": 87
+        },
+        {
+            "index": 41,
+            "command": "store"
+        },
+        {
+            "index": 42,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 43,
+            "command": "add"
+        },
+        {
+            "index": 44,
+            "command": "dup"
+        },
+        {
+            "index": 45,
+            "command": "push",
+            "arg": 111
+        },
+        {
+            "index": 46,
+            "command": "store"
+        },
+        {
+            "index": 47,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 48,
+            "command": "add"
+        },
+        {
+            "index": 49,
+            "command": "dup"
+        },
+        {
+            "index": 50,
+            "command": "push",
+            "arg": 114
+        },
+        {
+            "index": 51,
+            "command": "store"
+        },
+        {
+            "index": 52,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 53,
+            "command": "add"
+        },
+        {
+            "index": 54,
+            "command": "dup"
+        },
+        {
+            "index": 55,
+            "command": "push",
+            "arg": 108
+        },
+        {
+            "index": 56,
+            "command": "store"
+        },
+        {
+            "index": 57,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 58,
+            "command": "add"
+        },
+        {
+            "index": 59,
+            "command": "dup"
+        },
+        {
+            "index": 60,
+            "command": "push",
+            "arg": 100
+        },
+        {
+            "index": 61,
+            "command": "store"
+        },
+        {
+            "index": 62,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 63,
+            "command": "add"
+        },
+        {
+            "index": 64,
+            "command": "dup"
+        },
+        {
+            "index": 65,
+            "command": "push",
+            "arg": 33
+        },
+        {
+            "index": 66,
+            "command": "store"
+        },
+        {
+            "index": 67,
+            "command": "ret"
+        },
+        {
+            "index": 68,
+            "command": "jmp",
+            "arg": 85
+        },
+        {
+            "index": 69,
+            "command": "dup"
+        },
+        {
+            "index": 70,
+            "command": "push",
+            "arg": 0
+        },
+        {
+            "index": 71,
+            "command": "eq"
+        },
+        {
+            "index": 72,
+            "command": "zjmp",
+            "arg": 84
+        },
+        {
+            "index": 73,
+            "command": "drop"
+        },
+        {
+            "index": 74,
+            "command": "swap"
+        },
+        {
+            "index": 75,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 76,
+            "command": "add"
+        },
+        {
+            "index": 77,
+            "command": "dup"
+        },
+        {
+            "index": 78,
+            "command": "load"
+        },
+        {
+            "index": 79,
+            "command": "push",
+            "arg": 11
+        },
+        {
+            "index": 80,
+            "command": "emit"
+        },
+        {
+            "index": 81,
+            "command": "swap"
+        },
+        {
+            "index": 82,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 83,
+            "command": "sub"
+        },
+        {
+            "index": 84,
+            "command": "call",
+            "arg": 68
+        },
+        {
+            "index": 85,
+            "command": "ret"
+        },
+        {
+            "index": 86,
+            "command": "call",
+            "arg": 0
+        },
+        {
+            "index": 87,
+            "command": "push",
+            "arg": 0
+        },
+        {
+            "index": 88,
+            "command": "push",
+            "arg": 0
+        },
+        {
+            "index": 89,
+            "command": "load"
+        },
+        {
+            "index": 90,
+            "command": "call",
+            "arg": 68
+        },
+        {
+            "index": 91,
+            "command": "halt"
+        }
+    ]
+}

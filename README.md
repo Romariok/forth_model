@@ -1,47 +1,28 @@
 # Лабораторная работа №3. Эксперимент
-Кобелев Роман, P3212 без усложнения
-## Цель:
-
-- экспериментальное знакомство с устройством процессоров через моделирование;
-- получение опыта работы с компьютерной системой на нескольких уровнях организации, разрешая противоречия между ними.
-
-## Данная лабораторная работа носит практический характер. Она включает разработку:
-
-- языка программирования и транслятора;
-- системы команд;
-- модели процессора и его принципиальной схемы;
-- нескольких алгоритмов (реализация и тестирование работы).
-
-## Дополнительно:
-
-- работа с CI;
-- средства автоматического контроля качества кода;
-- автоматическое тестирование.
-
-# Вариант
-`forth | stack | harv | mc | tick | struct | stream | port | pstr | prob2`
+- Кобелев Роман, P3212 
+- `forth | stack | harv | mc -> hw | tick -> instr | struct | stream | port | pstr | prob2`
+- Базовый вариант
 
 
 # Язык программирования
 По варианту нужно реализовать FORTH-подобный язык
 
-```
+```ebnf
 <program> ::= <definition>*
-<definition> ::= <word-definition> | <variable-definition> | <constant-definition>
-<word-definition> ::= ":" <word-name> <body> ";" | ":NONAME" <body> ";"
+<definition> ::= <word-definition> | <variable-definition> | <variable-allocation-definition> | <word>
+<word-definition> ::= ":" <word-name> <body> ";"
 <word-name> ::= <identifier>
 <body> ::= <word>*
-<word> ::= <literal> | <primitive> | <word-name> | <conditional> | <loop> | <leave> | <comparsion>
+<word> ::= <literal> | <primitive> | <word-name> | <conditional> | <loop> | <comparsion>
 <literal> ::= <number> | <string>
 <number> ::= <digit>+
 <string> ::= "'" <char>* "'"
 <primitive> ::= "+" | "-" | "*" | "/" | "." | "@" | "!" 
 <variable-definition> ::= "VARIABLE" <word-name>
-<constant-definition> ::= "CONSTANT" <word-name> <number>
-<conditional> ::= "IF" <body>
+<variable-allocation-definition> ::= "VARIABLE" <word-name> <number> "ALLOCATE"
+<conditional> ::= "IF" <body> "THEN" | "IF" <body> "ELSE" <body> "THEN"
 <condition> ::= <number> | <literal>
 <loop> ::= "DO" <body> "LOOP"
-<leave> ::= "LEAVE"
 <comparison> ::= "<" | ">" | "="
 <identifier> ::= <letter> (<letter> | <digit>)*
 <letter> ::= "A" | "B" | ... | "Z" | "a" | "b" | ... | "z"
