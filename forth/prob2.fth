@@ -2,14 +2,15 @@ variable result 0
 variable first 1
 variable second 2
 variable temp 0
+variable two 2
 :_start
 do
 @ second
 ! temp
 + first
 ! second
-/ #2
-* #2
+/ two
+* two
 if @=second
 @+! result
 @ temp
@@ -20,5 +21,6 @@ leave
 loop
 @ result
 - second
-+ #2
++ two
 ;
+;#TODO переделать
