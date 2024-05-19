@@ -1,10 +1,11 @@
 variable what_name 16 allocate 
 variable hello_str 7 allocate
 
-: input_val
+: input_value
+    drop
     10 read
-    dup 0 = if 11 emit else 
-    1
+    dup 0 = if 11 emit 1 else
+    0
     then
 ;
 
@@ -53,7 +54,9 @@ set_what_name
 
 what_name what_name @
 print_var
+
 hello_str hello_str @
 print_var
 
-begin input_val until
+1
+begin input_value until

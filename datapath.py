@@ -78,19 +78,19 @@ class DataPath:
             result = left * right
         elif self.alu_operation == ALU.EQ:
             if left == right:
-                result = 0
-            else:
                 result = -1
+            else:
+                result = 0
         elif self.alu_operation == ALU.LS:
             if left < right:
-                result = 0
-            else:
                 result = -1
+            else:
+                result = 0
         elif self.alu_operation == ALU.GR:
             if left > right:
-                result = 0
-            else:
                 result = -1
+            else:
+                result = 0
         elif self.alu_operation == ALU.MOD:
             result = left % right
         else:

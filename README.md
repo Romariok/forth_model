@@ -3,54 +3,83 @@
 - `forth | stack | harv | mc -> hw | tick -> instr | struct | stream | port | pstr | prob2`
 - Базовый вариант
 
-
 # Язык программирования
 По варианту нужно реализовать FORTH-подобный язык
 
 ```ebnf
 <program> ::= <definition>*
-<definition> ::= <word-definition> | <variable-definition> | <variable-allocation-definition> | <word>
-<word-definition> ::= ":" <word-name> <body> ";"
-<word-name> ::= <identifier>
+<definition> ::= <word-definition> | <variable-definition> |<variable-allocation-definition> | <word>
+<word-definition> ::= ":" <identifier> <body> ";"
 <body> ::= <word>*
-<word> ::= <literal> | <primitive> | <word-name> | <conditional> | <loop> | <comparsion>
-<literal> ::= <number> | <string>
+<word> ::= <number> | <operand> | <word-name> | <conditional> | <loop> | <comment>
 <number> ::= <digit>+
-<string> ::= "'" <char>* "'"
-<primitive> ::= "+" | "-" | "*" | "/" | "." | "@" | "!" 
+<operand> ::= "+" 
+            | "-" 
+            | "*" 
+            | "/" 
+            | "read"
+            | "emit" 
+            | "@" 
+            | "!" 
+            | "mod" 
+            | "<" 
+            | ">" 
+            | "="
+            | "swap"
+            | "over"
+            | "dup"
+            | "drop"
+
 <variable-definition> ::= "VARIABLE" <word-name>
 <variable-allocation-definition> ::= "VARIABLE" <word-name> <number> "ALLOCATE"
-<conditional> ::= "IF" <body> "THEN" | "IF" <body> "ELSE" <body> "THEN"
-<condition> ::= <number> | <literal>
-<loop> ::= "DO" <body> "LOOP"
-<comparison> ::= "<" | ">" | "="
+<conditional> ::= "IF" <body> "THEN" | "IF" <body> "ELSE" <body> "THEN" 
+<loop> ::= "do" <body> "loop" | "begin" <body> "until"
 <identifier> ::= <letter> (<letter> | <digit>)*
-<letter> ::= "A" | "B" | ... | "Z" | "a" | "b" | ... | "z"
-<digit> ::= "0" | "1" | ... | "9"
+<comment> ::= "\" <any symbol except "\n">
 ```
-`any number` - Записываем в стек число
+
+## Команды
+
+`+` - (n1 n2 -- n3) 
+
+`-` - (n1 n2 -- n3)
+
+`*` - (n1 n2 -- n3)
+
+`/` - (n1 n2 -- n3)
+
+`mod` - (n1 n2 -- n3)
+
+`=` - (n1 n2 -- n3) n3 = -1 if n1 == n2 else 0
+
+`<` - (n1 n2 -- n3) n3 = -1 if n1 < n2 else 0 
+
+`>` - (n1 n2 -- n3) n3 = -1 if n1 > n2 else 0 
+
+`swap` - (n1 n2 -- n2 n1)
+
+`drop` - (n1 n2 -- n1)
+
+`over` - (n1 n2 -- n1 n2 n1)
+
+`read` - (n1 -- n2) - прочитать символ из порта `n1` и положить на стек
+
+`emit` - (n1 n2 -- ) - вывести ASCII символ с кодом `n1` в порт `n2`
+
+`!` - (n1 n2 -- ) - записывает в память по адресу `n1` занчение `n2`
+
+`@` - (n1 -- n2) - загружает из памяти значение по адресу `n1`
+
+Условный оператор `if` берёт значение 
+
 
 `variable <name> <value>` - Приисвоить переменной с именем `<name>` значение `<value>`
-
-`+` - Вынимает два последних значения в стеке и записывает результат их сложения
-
-`-` - Вынимает два последних значения в стеке и записывает результат вычитания из предпоследнего элемента последнего 
-
-`*` - Вынимает два последних значения в стеке и записывает результат их перемножения
-
-`/` - Вынимает два последних значения в стеке и записывает результат деления из предпоследнего элемента последнего 
-
-`.` - Вынимает последний элемент из стека и выводит его
-
-`< > =` - Идёт сравнение предпоследжнего элемента стека с последним и записывается `0`, если не выполняется условие и `-1`, если выполняется
 
 `:_start` - задание основной функции
 
 `;` - `HLT`
 
-`!` - помещает значение и ячейку памяти в стек и сохраняет это значение в этой ячейке памяти
 
-`@` - извлекает значение на основе расположения в памяти и помещает это значение в стек
 
 `do loop` - условный оператор, напоминающий конструкцию `for` в большинтсве языков на основе `C`. специальное слово `i` помещает текущий индекс цикла в стек. Два верхних значения в стеке дают начальное значение (включительно) и конечное значение (исключая) для значения `i`. Начальное значение берется с вершины стека.
 

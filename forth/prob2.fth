@@ -4,6 +4,7 @@ variable next
 variable temp
 
 : next_fib
+drop
 temp @ 4000000 > \ Проверка на число 
 if 
 temp current @ next @ + ! \ Следующее число
@@ -15,16 +16,16 @@ result dup @ temp @ + !
 then
 
 next temp @ !
-
+1
 else
-1 \ Кладём не 0, чтобы выйти из цикла
+0 \ Кладём 0, чтобы выйти из цикла
 then
 ;
 
 result 0 !
 current 0 !
 next 1 !
-
+1
 begin \ цикл, который генерирует числа
 next_fib
 until

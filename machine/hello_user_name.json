@@ -7,52 +7,51 @@
         {
             "index": 0,
             "command": "jmp",
-            "arg": 12
+            "arg": 14
         },
         {
             "index": 1,
+            "command": "drop"
+        },
+        {
+            "index": 2,
             "command": "push",
             "arg": 10
         },
         {
-            "index": 2,
+            "index": 3,
             "command": "read"
         },
         {
-            "index": 3,
+            "index": 4,
             "command": "dup"
         },
         {
-            "index": 4,
+            "index": 5,
             "command": "push",
             "arg": 0
         },
         {
-            "index": 5,
+            "index": 6,
             "command": "eq"
         },
         {
-            "index": 6,
-            "command": "zjmp",
-            "arg": 10
-        },
-        {
             "index": 7,
-            "command": "drop"
+            "command": "zjmp",
+            "arg": 12
         },
         {
             "index": 8,
+            "command": "drop"
+        },
+        {
+            "index": 9,
             "command": "push",
             "arg": 11
         },
         {
-            "index": 9,
-            "command": "emit"
-        },
-        {
             "index": 10,
-            "command": "jmp",
-            "arg": 11
+            "command": "emit"
         },
         {
             "index": 11,
@@ -61,681 +60,696 @@
         },
         {
             "index": 12,
-            "command": "ret"
+            "command": "jmp",
+            "arg": 13
         },
         {
             "index": 13,
-            "command": "jmp",
-            "arg": 95
-        },
-        {
-            "index": 14,
             "command": "push",
             "arg": 0
         },
         {
+            "index": 14,
+            "command": "ret"
+        },
+        {
             "index": 15,
+            "command": "jmp",
+            "arg": 97
+        },
+        {
+            "index": 16,
+            "command": "push",
+            "arg": 0
+        },
+        {
+            "index": 17,
             "command": "push",
             "arg": 1
         },
         {
-            "index": 16,
+            "index": 18,
             "command": "add"
         },
         {
-            "index": 17,
-            "command": "dup"
-        },
-        {
-            "index": 18,
-            "command": "push",
-            "arg": 80
-        },
-        {
             "index": 19,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 20,
             "command": "push",
-            "arg": 1
+            "arg": 80
         },
         {
             "index": 21,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 22,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 23,
-            "command": "push",
-            "arg": 114
+            "command": "add"
         },
         {
             "index": 24,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 25,
             "command": "push",
-            "arg": 1
+            "arg": 114
         },
         {
             "index": 26,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 27,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 28,
-            "command": "push",
-            "arg": 105
+            "command": "add"
         },
         {
             "index": 29,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 30,
             "command": "push",
-            "arg": 1
+            "arg": 105
         },
         {
             "index": 31,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 32,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 33,
-            "command": "push",
-            "arg": 110
+            "command": "add"
         },
         {
             "index": 34,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 35,
             "command": "push",
-            "arg": 1
+            "arg": 110
         },
         {
             "index": 36,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 37,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 38,
-            "command": "push",
-            "arg": 116
+            "command": "add"
         },
         {
             "index": 39,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 40,
             "command": "push",
-            "arg": 1
+            "arg": 116
         },
         {
             "index": 41,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 42,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 43,
-            "command": "push",
-            "arg": 32
+            "command": "add"
         },
         {
             "index": 44,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 45,
             "command": "push",
-            "arg": 1
+            "arg": 32
         },
         {
             "index": 46,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 47,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 48,
-            "command": "push",
-            "arg": 121
+            "command": "add"
         },
         {
             "index": 49,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 50,
             "command": "push",
-            "arg": 1
+            "arg": 121
         },
         {
             "index": 51,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 52,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 53,
-            "command": "push",
-            "arg": 111
+            "command": "add"
         },
         {
             "index": 54,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 55,
             "command": "push",
-            "arg": 1
+            "arg": 111
         },
         {
             "index": 56,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 57,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 58,
-            "command": "push",
-            "arg": 117
+            "command": "add"
         },
         {
             "index": 59,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 60,
             "command": "push",
-            "arg": 1
+            "arg": 117
         },
         {
             "index": 61,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 62,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 63,
-            "command": "push",
-            "arg": 114
+            "command": "add"
         },
         {
             "index": 64,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 65,
             "command": "push",
-            "arg": 1
+            "arg": 114
         },
         {
             "index": 66,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 67,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 68,
-            "command": "push",
-            "arg": 32
+            "command": "add"
         },
         {
             "index": 69,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 70,
             "command": "push",
-            "arg": 1
+            "arg": 32
         },
         {
             "index": 71,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 72,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 73,
-            "command": "push",
-            "arg": 110
+            "command": "add"
         },
         {
             "index": 74,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 75,
             "command": "push",
-            "arg": 1
+            "arg": 110
         },
         {
             "index": 76,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 77,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 78,
-            "command": "push",
-            "arg": 97
+            "command": "add"
         },
         {
             "index": 79,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 80,
             "command": "push",
-            "arg": 1
+            "arg": 97
         },
         {
             "index": 81,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 82,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 83,
-            "command": "push",
-            "arg": 109
+            "command": "add"
         },
         {
             "index": 84,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 85,
             "command": "push",
-            "arg": 1
+            "arg": 109
         },
         {
             "index": 86,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 87,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 88,
-            "command": "push",
-            "arg": 101
+            "command": "add"
         },
         {
             "index": 89,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 90,
             "command": "push",
-            "arg": 1
+            "arg": 101
         },
         {
             "index": 91,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 92,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 93,
+            "command": "add"
+        },
+        {
+            "index": 94,
+            "command": "dup"
+        },
+        {
+            "index": 95,
             "command": "push",
             "arg": 10
         },
         {
-            "index": 94,
+            "index": 96,
             "command": "store"
         },
         {
-            "index": 95,
+            "index": 97,
             "command": "ret"
         },
         {
-            "index": 96,
+            "index": 98,
             "command": "jmp",
-            "arg": 133
+            "arg": 135
         },
         {
-            "index": 97,
+            "index": 99,
             "command": "push",
             "arg": 18
         },
         {
-            "index": 98,
+            "index": 100,
             "command": "push",
             "arg": 1
         },
         {
-            "index": 99,
+            "index": 101,
             "command": "add"
         },
         {
-            "index": 100,
-            "command": "dup"
-        },
-        {
-            "index": 101,
-            "command": "push",
-            "arg": 72
-        },
-        {
             "index": 102,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 103,
             "command": "push",
-            "arg": 1
+            "arg": 72
         },
         {
             "index": 104,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 105,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 106,
-            "command": "push",
-            "arg": 101
+            "command": "add"
         },
         {
             "index": 107,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 108,
             "command": "push",
-            "arg": 1
+            "arg": 101
         },
         {
             "index": 109,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 110,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 111,
-            "command": "push",
-            "arg": 108
+            "command": "add"
         },
         {
             "index": 112,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 113,
             "command": "push",
-            "arg": 1
-        },
-        {
-            "index": 114,
-            "command": "add"
-        },
-        {
-            "index": 115,
-            "command": "dup"
-        },
-        {
-            "index": 116,
-            "command": "push",
             "arg": 108
         },
         {
-            "index": 117,
+            "index": 114,
             "command": "store"
+        },
+        {
+            "index": 115,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 116,
+            "command": "add"
+        },
+        {
+            "index": 117,
+            "command": "dup"
         },
         {
             "index": 118,
             "command": "push",
-            "arg": 1
+            "arg": 108
         },
         {
             "index": 119,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 120,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 121,
-            "command": "push",
-            "arg": 111
+            "command": "add"
         },
         {
             "index": 122,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 123,
             "command": "push",
-            "arg": 1
+            "arg": 111
         },
         {
             "index": 124,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 125,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 126,
-            "command": "push",
-            "arg": 44
+            "command": "add"
         },
         {
             "index": 127,
-            "command": "store"
+            "command": "dup"
         },
         {
             "index": 128,
             "command": "push",
-            "arg": 1
+            "arg": 44
         },
         {
             "index": 129,
-            "command": "add"
+            "command": "store"
         },
         {
             "index": 130,
-            "command": "dup"
+            "command": "push",
+            "arg": 1
         },
         {
             "index": 131,
+            "command": "add"
+        },
+        {
+            "index": 132,
+            "command": "dup"
+        },
+        {
+            "index": 133,
             "command": "push",
             "arg": 32
         },
         {
-            "index": 132,
+            "index": 134,
             "command": "store"
         },
         {
-            "index": 133,
+            "index": 135,
             "command": "ret"
         },
         {
-            "index": 134,
+            "index": 136,
             "command": "jmp",
-            "arg": 151
+            "arg": 153
         },
         {
-            "index": 135,
+            "index": 137,
             "command": "dup"
         },
         {
-            "index": 136,
+            "index": 138,
             "command": "push",
             "arg": 0
         },
         {
-            "index": 137,
+            "index": 139,
             "command": "eq"
         },
         {
-            "index": 138,
-            "command": "zjmp",
-            "arg": 150
-        },
-        {
-            "index": 139,
-            "command": "drop"
-        },
-        {
             "index": 140,
-            "command": "swap"
+            "command": "zjmp",
+            "arg": 152
         },
         {
             "index": 141,
+            "command": "drop"
+        },
+        {
+            "index": 142,
+            "command": "swap"
+        },
+        {
+            "index": 143,
             "command": "push",
             "arg": 1
         },
         {
-            "index": 142,
+            "index": 144,
             "command": "add"
         },
         {
-            "index": 143,
+            "index": 145,
             "command": "dup"
         },
         {
-            "index": 144,
+            "index": 146,
             "command": "load"
         },
         {
-            "index": 145,
+            "index": 147,
             "command": "push",
             "arg": 11
         },
         {
-            "index": 146,
+            "index": 148,
             "command": "emit"
         },
         {
-            "index": 147,
+            "index": 149,
             "command": "swap"
         },
         {
-            "index": 148,
+            "index": 150,
             "command": "push",
             "arg": 1
         },
         {
-            "index": 149,
-            "command": "sub"
-        },
-        {
-            "index": 150,
-            "command": "call",
-            "arg": 134
-        },
-        {
             "index": 151,
-            "command": "ret"
+            "command": "sub"
         },
         {
             "index": 152,
             "command": "call",
-            "arg": 96
+            "arg": 136
         },
         {
             "index": 153,
-            "command": "call",
-            "arg": 13
+            "command": "ret"
         },
         {
             "index": 154,
-            "command": "push",
-            "arg": 0
+            "command": "call",
+            "arg": 98
         },
         {
             "index": 155,
-            "command": "push",
-            "arg": 0
+            "command": "call",
+            "arg": 15
         },
         {
             "index": 156,
-            "command": "load"
+            "command": "push",
+            "arg": 0
         },
         {
             "index": 157,
-            "command": "call",
-            "arg": 134
+            "command": "push",
+            "arg": 0
         },
         {
             "index": 158,
-            "command": "push",
-            "arg": 18
-        },
-        {
-            "index": 159,
-            "command": "push",
-            "arg": 18
-        },
-        {
-            "index": 160,
             "command": "load"
         },
         {
-            "index": 161,
+            "index": 159,
             "command": "call",
-            "arg": 134
+            "arg": 136
+        },
+        {
+            "index": 160,
+            "command": "push",
+            "arg": 18
+        },
+        {
+            "index": 161,
+            "command": "push",
+            "arg": 18
         },
         {
             "index": 162,
+            "command": "load"
+        },
+        {
+            "index": 163,
+            "command": "call",
+            "arg": 136
+        },
+        {
+            "index": 164,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 165,
             "command": "call",
             "arg": 0
         },
         {
-            "index": 163,
+            "index": 166,
             "command": "zjmp",
-            "arg": 161
+            "arg": 164
         },
         {
-            "index": 164,
+            "index": 167,
             "command": "halt"
         }
     ]

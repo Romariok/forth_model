@@ -39,7 +39,7 @@ class ControlUnit:
 
     def signal_mux_jmp_type(self):
         if self.mux_jmp_type == MUX.JMP_TYPE_ZERO:
-            if self.datapath.get_zero():
+            if not self.datapath.get_zero():
                 return MUX.PC_ADDR
             return MUX.PC_INC
         if self.mux_jmp_type == MUX.JMP_TYPE_MPC:
