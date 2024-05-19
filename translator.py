@@ -3,6 +3,7 @@ from __future__ import annotations
 import re
 import sys
 
+from exceptions import BadAllocationSizeError, TokenTranslationError
 from isa import Arg, ArgType, Instruction, Opcode, Term, write_code
 
 variables = {}
@@ -27,7 +28,7 @@ def is_int(value: str) -> bool:
 
 
 def is_math(value: str) -> bool:
-    return len(value) == 1 and value in ["*", "/", "+", "-"]
+    return len(value) == 1 and value in ["*", "/", "+", "-", "mod"]
 
 
 def is_comparator_word(value: str) -> bool:
@@ -69,7 +70,7 @@ def set_cycles(terms: list[Term]) -> None:
                 term.operand = blocks_until.pop() - 1
             case _:
                 continue
-    assert len(blocks_loop) == 0 and len(blocks_until) == 0, "Unbalanced cycles"
+    assert len(blocks_loop) == 0 and len(blocks_until) == 0, "Unbalanced cycles"  # noqa: PT018
 
 
 def set_functions(terms: list[Term]) -> None:
@@ -113,7 +114,7 @@ def line_to_term(pos: int, char_seq: str) -> [int, list[Term]]:
         elif char_seq[char_seq.find(".") : char_seq.find(".") + 2] == ". ":
             terms.append(Term(pos, '."'))
         else:
-            raise Exception(f"Problems with {pos} term")
+            raise TokenTranslationError(pos)
     return pos, terms
 
 
@@ -168,7 +169,7 @@ def set_allocate(terms: list[Term], term_num: int) -> None:
         assert 1 <= allocate_size <= 100, "Incorrect allocate size at " + str(term.word_number - 1)
         variable_current_address += allocate_size
     except ValueError:
-        raise Exception("Incorrect allocate size at " + str(term.word_number - 1))
+        raise BadAllocationSizeError(term.word_number - 1)
 
 
 def set_conditional(terms: list[Term]) -> None:
@@ -230,6 +231,7 @@ def term_to_instruction(term: Term) -> list(Instruction):
         "/": [Instruction(Opcode.DIV, [])],
         "*": [Instruction(Opcode.MUL, [])],
         "=": [Instruction(Opcode.EQ, [])],
+        "mod": [Instruction(Opcode.MOD, [])],
         ">": [Instruction(Opcode.GR, [])],
         "<": [Instruction(Opcode.LS, [])],
         "swap": [Instruction(Opcode.SWAP, [])],

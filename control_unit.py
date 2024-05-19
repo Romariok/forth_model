@@ -41,36 +41,31 @@ class ControlUnit:
         if self.mux_jmp_type == MUX.JMP_TYPE_ZERO:
             if self.datapath.get_zero():
                 return MUX.PC_ADDR
-            else:
-                return MUX.PC_INC
-        elif self.mux_jmp_type == MUX.JMP_TYPE_MPC:
+            return MUX.PC_INC
+        if self.mux_jmp_type == MUX.JMP_TYPE_MPC:
             return self.mux_pc
-        else:
-            raise ValueError("Unknown mux_jmp_type signal: " + self.mux_jmp_type)
+        raise ValueError("Unknown mux_jmp_type signal: " + self.mux_jmp_type)
 
     def signal_mux_mpc(self):
         if self.mux_mpc == MUX.MPC_INC:
             return self.mpc + 1
-        elif self.mux_mpc == MUX.MPC_OPCODE:
+        if self.mux_mpc == MUX.MPC_OPCODE:
             return opcode_to_mpc(self._ir.opcode)
-        elif self.mux_mpc == MUX.MPC_ZERO:
+        if self.mux_mpc == MUX.MPC_ZERO:
             return 0
-        else:
-            raise ValueError("Unknown mux_mpc signal: " + self.mux_mpc)
+        raise ValueError("Unknown mux_mpc signal: " + self.mux_mpc)
 
     def signal_mux_pc(self):
         self.mux_pc = self.signal_mux_jmp_type()
         if self.mux_pc == MUX.PC_INC:
             if self.mux_jmp_type == MUX.JMP_TYPE_ZERO:
                 return self.datapath._pc
-            else:
-                return self.datapath._pc + 1
-        elif self.mux_pc == MUX.PC_ADDR:
+            return self.datapath._pc + 1
+        if self.mux_pc == MUX.PC_ADDR:
             return self.microprogram_memory[self.datapath._pc].arg.value
-        elif self.mux_pc == MUX.PC_RET:
+        if self.mux_pc == MUX.PC_RET:
             return self.datapath.return_stack[self.datapath.return_stack_pointer]
-        else:
-            raise ValueError("Unknown mux_pc signal: " + self.mux_pc)
+        raise ValueError("Unknown mux_pc signal: " + self.mux_pc)
 
     # MUX
 
@@ -94,7 +89,7 @@ class ControlUnit:
     def signal_latch_ir(self):
         self._ir = self.microprogram_memory[self.datapath._pc]
 
-    def dispatch_micro_instruction(self, microcode: list):
+    def dispatch_micro_instruction(self, microcode: list):  # noqa: C901
         self.mux_jmp_type = MUX.JMP_TYPE_MPC
 
         for signal in microcode:
@@ -114,7 +109,7 @@ class ControlUnit:
                 self.datapath.select_signal_stack_pointer(signal)
             elif signal in [MUX.JMP_TYPE_MPC, MUX.JMP_TYPE_ZERO]:
                 self.select_signal_jmp_type(signal)
-            elif signal in [ALU.DIV, ALU.EQ, ALU.GR, ALU.LS, ALU.SUB, ALU.ADD, ALU.MUL]:
+            elif signal in [ALU.DIV, ALU.EQ, ALU.GR, ALU.LS, ALU.SUB, ALU.ADD, ALU.MUL, ALU.MOD]:
                 self.datapath.select_signal_alu_operation(signal)
             elif isinstance(signal, Halt):
                 raise StopIteration("Halt!")
@@ -155,7 +150,7 @@ class ControlUnit:
         self.tick()
 
     def __repr__(self):
-        state = (
+        return (
             f"[{self.datapath._pc}: {self._ir.opcode if self._ir is not None else 'NO_OPCODE' }] TICK: {self.current_tick()} MPC: {self.mpc} "
             f"IR: {self._ir} TOP: {self.datapath.stack[self.datapath.stack_pointer]} "
             f"NEXT: {self.datapath.stack[self.datapath.stack_pointer-1]} "
@@ -163,4 +158,4 @@ class ControlUnit:
             f"RSP: {self.datapath.return_stack_pointer}"
         )
 
-        return state
+

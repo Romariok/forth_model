@@ -38,7 +38,7 @@ class DataPath:
       self.stack_pointer = -1
       self.return_stack_pointer = -1
       self.memory_size = MEMORY_SIZE
-      self.memory = [0] * self.memory_size 
+      self.memory = [0] * self.memory_size
       self._bf = 0
       self._io = {}
       self._pc = -1
@@ -54,18 +54,17 @@ class DataPath:
    def signal_mux_tos(self):
       if self.mux_tos == MUX.TOS_RETURN_STACK:
          return self.return_stack[self.return_stack_pointer]
-      elif self.mux_tos == MUX.TOS_MEMORY:
+      if self.mux_tos == MUX.TOS_MEMORY:
          return self.memory[self.stack[self.stack_pointer]]
-      elif self.mux_tos == MUX.TOS_ALU:
+      if self.mux_tos == MUX.TOS_ALU:
          return self.get_alu_operation()
-      elif self.mux_tos == MUX.TOS_IN:
+      if self.mux_tos == MUX.TOS_IN:
          return ord(self.input_value)
-      elif self.mux_tos == MUX.TOS_IMM:
+      if self.mux_tos == MUX.TOS_IMM:
          return self.immediate_value
-      else:
-         raise ValueError("Unknown mux_tos signal: "+ self.mux_tos)
+      raise ValueError("Unknown mux_tos signal: "+ self.mux_tos)
 
-   def get_alu_operation(self):
+   def get_alu_operation(self):  # noqa: C901
       left = self.stack[self.stack_pointer-1]
       right = self.stack[self.stack_pointer]
       result = 0
@@ -92,6 +91,8 @@ class DataPath:
             result = 0
          else:
             result = -1
+      elif self.alu_operation == ALU.MOD:
+         result = left % right
       else:
          raise ValueError("Unknown alu_operation signal: "+ self.alu_operation)
       self._Z = result == 0
@@ -101,28 +102,25 @@ class DataPath:
    def signal_mux_stack_pointer(self):
       if self.mux_sp == MUX.SP_INC:
          return self.stack_pointer + 1
-      elif self.mux_sp == MUX.SP_DEC:
+      if self.mux_sp == MUX.SP_DEC:
          return self.stack_pointer - 1
-      elif self.mux_sp == MUX.SP_DOUBLE_DEC:
+      if self.mux_sp == MUX.SP_DOUBLE_DEC:
          return self.stack_pointer - 2
-      else:
-         raise ValueError("Unknown mux_stack_pointer signal: "+ self.mux_sp)
+      raise ValueError("Unknown mux_stack_pointer signal: "+ self.mux_sp)
 
    def signal_mux_return_stack_pointer(self):
       if self.mux_rsp == MUX.RSP_INC:
          return self.return_stack_pointer + 1
-      elif self.mux_rsp == MUX.RSP_DEC:
+      if self.mux_rsp == MUX.RSP_DEC:
          return self.return_stack_pointer - 1
-      else:
-         raise ValueError("Unknown mux_return_stack_pointer signal: "+ self.mux_rsp)
+      raise ValueError("Unknown mux_return_stack_pointer signal: "+ self.mux_rsp)
 
    def signal_mux_return_stack(self):
       if self.mux_ret_stack == MUX.RS_PC:
          return self._pc
-      elif self.mux_ret_stack == MUX.RS_TOS:
+      if self.mux_ret_stack == MUX.RS_TOS:
          return self.stack[self.stack_pointer]
-      else:
-         raise ValueError("Unknown mux_return_stack signal: "+ self.mux_ret_stack)
+      raise ValueError("Unknown mux_return_stack signal: "+ self.mux_ret_stack)
 
    # MUX
 

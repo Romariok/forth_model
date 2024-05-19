@@ -1,4 +1,6 @@
 from enum import Enum
+
+from exceptions import UnknownOpcodeError
 from isa import Opcode
 
 
@@ -27,9 +29,10 @@ class ALU(Enum):
     DIV = 1
     SUB = 2
     MUL = 3
-    LS = 4
-    GR = 5
-    EQ = 6
+    MOD = 4
+    LS = 5
+    GR = 6
+    EQ = 7
 
 
 class MEMORY(Enum):
@@ -205,6 +208,8 @@ mc_memory = [
     ],
     [MUX.MPC_INC, Latch.MPC, MUX.TOS_RETURN_STACK, Latch.TOP, MUX.RSP_DEC, Latch.RSP],
     [MUX.MPC_ZERO, Latch.MPC, MUX.TOS_RETURN_STACK, Latch.NEXT, MUX.RSP_DEC, Latch.RSP],
+    # 36 MOD
+    [MUX.MPC_ZERO, Latch.MPC, ALU.MOD, MUX.TOS_ALU, Latch.NEXT, MUX.SP_DEC, Latch.SP],
 ]
 
 
@@ -258,5 +263,7 @@ def opcode_to_mpc(opcode: Opcode) -> int:
             return 31
         case Opcode.SWAP:
             return 32
+        case Opcode.MOD:
+            return 36
         case _:
-            raise Exception("Unknown opcode: " + opcode)
+            raise UnknownOpcodeError(opcode)

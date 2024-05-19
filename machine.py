@@ -6,7 +6,7 @@ from datapath import DataPath
 from isa import read_code
 from mc import mc_memory
 
-TICK_LIMIT = 5000
+TICK_LIMIT = 7000
 
 
 def simulation(code: list, input_tokens: list, memory: dict):
@@ -27,7 +27,7 @@ def simulation(code: list, input_tokens: list, memory: dict):
     if control_unit.current_tick() == TICK_LIMIT:
         logging.warning("Tick Limit!")
 
-    out = "".join(map(lambda x: chr(x) if x > 9 else str(x), datapath._io[11]))
+    out = "".join(map(lambda x: chr(x) if x > 9 and x <= 255 else str(x), datapath._io[11]))
     logging.debug("OUTPUT: "+ out)
     return out, instructions, control_unit.current_tick()
 
@@ -47,7 +47,7 @@ def main(code_file: str, input_file: str):
 if __name__ == "__main__":
     logging.getLogger().setLevel(logging.DEBUG)
 
-    assert (
+    assert (  # noqa: PT018
         len(sys.argv) <=3 and len(sys.argv) >=2
     ), "Invalid usage: python3 machine.py <code_file> [<input_file>]"
     if len(sys.argv) == 2:

@@ -15,16 +15,16 @@ class ArgType(str, Enum):
         return str(self.value)
 
 class Arg:
-    argType: ArgType
+    argtype: ArgType
 
     value: int | None
 
-    def __init__(self, argType: ArgType, value: int | None):
-        self.argType = argType
+    def __init__(self, argtype: ArgType, value: int | None):
+        self.argtype = argtype
         self.value = value
 
     def __str__(self):
-        return f"{self.argType} {self.value}"
+        return f"{self.argtype} {self.value}"
 
 
 class Opcode(str, Enum):
@@ -35,6 +35,7 @@ class Opcode(str, Enum):
     EQ = "eq"
     GR = "gr"
     LS = "ls"
+    MOD = "mod"
     SWAP = "swap"
     DROP = "drop"
     DUP = "dup"
@@ -61,25 +62,25 @@ class Opcode(str, Enum):
 
 class Term:
     """Описание выражения из исходного текста программы"""
-    
+
     number: int
     "Позиция токена в программе"
-    
+
     operand: int
     "Хранение дополнительного значения"
-    
+
     name: str
     "Название команды"
-    
+
     converted: bool
     "Нужно ли перевести в машинный код"
-    
+
     def __init__(self, number: int, name: str):
         self.number = number
         self.operand = None
         self.name = name
         self.converted = False
-    
+
     def __str__(self):
        return f"{self.number}  {self.name}"
 
@@ -93,7 +94,7 @@ class Instruction:
     def __init__(self, opcode: Opcode, arg: list[Arg] | None):
         self.opcode = opcode
         self.arg = arg
-        
+
     def __str__(self):
         return f"{self.opcode} {self.arg}"
 
