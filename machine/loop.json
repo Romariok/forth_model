@@ -1,0 +1,110 @@
+{
+    "memory": {},
+    "code": [
+        {
+            "index": 0,
+            "command": "push",
+            "arg": 8
+        },
+        {
+            "index": 1,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 2,
+            "command": "pop"
+        },
+        {
+            "index": 3,
+            "command": "pop"
+        },
+        {
+            "index": 4,
+            "command": "rpop"
+        },
+        {
+            "index": 5,
+            "command": "rpop"
+        },
+        {
+            "index": 6,
+            "command": "over"
+        },
+        {
+            "index": 7,
+            "command": "over"
+        },
+        {
+            "index": 8,
+            "command": "pop"
+        },
+        {
+            "index": 9,
+            "command": "pop"
+        },
+        {
+            "index": 10,
+            "command": "swap"
+        },
+        {
+            "index": 11,
+            "command": "drop"
+        },
+        {
+            "index": 12,
+            "command": "push",
+            "arg": 11
+        },
+        {
+            "index": 13,
+            "command": "emit"
+        },
+        {
+            "index": 14,
+            "command": "rpop"
+        },
+        {
+            "index": 15,
+            "command": "rpop"
+        },
+        {
+            "index": 16,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 17,
+            "command": "add"
+        },
+        {
+            "index": 18,
+            "command": "over"
+        },
+        {
+            "index": 19,
+            "command": "over"
+        },
+        {
+            "index": 20,
+            "command": "gr"
+        },
+        {
+            "index": 21,
+            "command": "zjmp",
+            "arg": 1
+        },
+        {
+            "index": 22,
+            "command": "drop"
+        },
+        {
+            "index": 23,
+            "command": "drop"
+        },
+        {
+            "index": 24,
+            "command": "halt"
+        }
+    ]
+}

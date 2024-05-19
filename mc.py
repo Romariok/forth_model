@@ -81,7 +81,7 @@ mc_memory = [
     # 5 JUMP
     [MUX.MPC_ZERO, Latch.MPC, MUX.PC_ADDR, Latch.PC],
     # 6 ZJUMP
-    [MUX.MPC_ZERO, Latch.MPC, MUX.JMP_TYPE_ZERO, Latch.PC],
+    [MUX.MPC_ZERO, Latch.MPC, MUX.JMP_TYPE_ZERO, Latch.PC, MUX.SP_DEC, Latch.SP],
     # 7 CALL
     [MUX.MPC_INC, Latch.MPC, MUX.RSP_INC, Latch.RSP],
     [MUX.MPC_ZERO, Latch.MPC, MUX.RS_PC, Latch.RS, MUX.PC_ADDR, Latch.PC],
@@ -117,7 +117,7 @@ mc_memory = [
     [MUX.MPC_ZERO, Latch.MPC, MUX.TOS_RETURN_STACK, Latch.TOP, MUX.RSP_DEC, Latch.RSP],
     # 20 POP
     [
-        MUX.MPC_INC,
+        MUX.MPC_ZERO,
         Latch.MPC,
         MUX.RS_TOS,
         MUX.RSP_INC,
@@ -128,7 +128,7 @@ mc_memory = [
     ],
     # 21 RPOP
     [
-        MUX.MPC_INC,
+        MUX.MPC_ZERO,
         Latch.MPC,
         MUX.SP_INC,
         Latch.SP,
