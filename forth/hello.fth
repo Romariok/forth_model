@@ -1,6 +1,6 @@
 variable hello_string 13 allocate \ объявляем переменную, куда запишем строку
 
-: set_hello \ заполняет переменную "Hello, World!" [72 101 108 108 111 44 32 87 111 114 108 100 33]
+: set_hello_world \ заполняет переменную "Hello, World!" [72 101 108 108 111 44 32 87 111 114 108 100 33]
 hello_string 1 +
 dup 72 ! \ H
 1 + dup 101 ! \ e
@@ -26,11 +26,6 @@ print_var
 then
 ;
 
-set_hello
+set_hello_world
 hello_string hello_string @
 print_var
-
-
-
-
-

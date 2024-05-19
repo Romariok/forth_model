@@ -1,0 +1,1651 @@
+in_source: |-
+  : input_value
+      10 read
+      dup 0 = if 11 emit else 
+      1
+      then
+  ;
+  begin input_value until
+in_stdin: |-
+  Cat, dog - bird : nothing
+out_code: |-
+  {
+      "memory": {},
+      "code": [
+          {
+              "index": 0,
+              "command": "jmp",
+              "arg": 12
+          },
+          {
+              "index": 1,
+              "command": "push",
+              "arg": 10
+          },
+          {
+              "index": 2,
+              "command": "read"
+          },
+          {
+              "index": 3,
+              "command": "dup"
+          },
+          {
+              "index": 4,
+              "command": "push",
+              "arg": 0
+          },
+          {
+              "index": 5,
+              "command": "eq"
+          },
+          {
+              "index": 6,
+              "command": "zjmp",
+              "arg": 10
+          },
+          {
+              "index": 7,
+              "command": "drop"
+          },
+          {
+              "index": 8,
+              "command": "push",
+              "arg": 11
+          },
+          {
+              "index": 9,
+              "command": "emit"
+          },
+          {
+              "index": 10,
+              "command": "jmp",
+              "arg": 11
+          },
+          {
+              "index": 11,
+              "command": "push",
+              "arg": 1
+          },
+          {
+              "index": 12,
+              "command": "ret"
+          },
+          {
+              "index": 13,
+              "command": "call",
+              "arg": 0
+          },
+          {
+              "index": 14,
+              "command": "zjmp",
+              "arg": 12
+          },
+          {
+              "index": 15,
+              "command": "halt"
+          }
+      ]
+  }
+
+out_stdout: |
+  source LoC: 7 code instr: 16
+  ============================================================
+  instr_counter: 337 ticks: 1502
+
+out_log: |
+  DEBUG   machine:simulation    [-1: NO_OPCODE] TICK: 0 MPC: 0 IR: None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [0: NO_OPCODE] TICK: 1 MPC: 1 IR: None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [0: jmp] TICK: 2 MPC: 2 IR: jmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [0: jmp] TICK: 3 MPC: 5 IR: jmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: jmp] TICK: 4 MPC: 0 IR: jmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: jmp] TICK: 5 MPC: 1 IR: jmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 6 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 7 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 8 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 9 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 10 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 11 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 12 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 13 MPC: 23 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 14 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 15 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 16 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 17 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: 'C'
+  DEBUG   machine:simulation    [2: read] TICK: 18 MPC: 0 IR: read None TOP: 67 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 19 MPC: 1 IR: read None TOP: 67 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 20 MPC: 2 IR: dup None TOP: 67 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 21 MPC: 18 IR: dup None TOP: 67 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 22 MPC: 19 IR: dup None TOP: 0 NEXT: 67 RS: 67 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 23 MPC: 0 IR: dup None TOP: 67 NEXT: 67 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 24 MPC: 1 IR: dup None TOP: 67 NEXT: 67 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 25 MPC: 2 IR: push const 0 TOP: 67 NEXT: 67 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 26 MPC: 22 IR: push const 0 TOP: 67 NEXT: 67 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 27 MPC: 23 IR: push const 0 TOP: 0 NEXT: 67 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 28 MPC: 0 IR: push const 0 TOP: 0 NEXT: 67 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 29 MPC: 1 IR: push const 0 TOP: 0 NEXT: 67 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 30 MPC: 2 IR: eq None TOP: 0 NEXT: 67 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 31 MPC: 15 IR: eq None TOP: 0 NEXT: 67 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 32 MPC: 0 IR: eq None TOP: -1 NEXT: 67 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 33 MPC: 1 IR: eq None TOP: -1 NEXT: 67 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 34 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 67 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 35 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 67 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 36 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 67 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 37 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 67 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 38 MPC: 2 IR: drop None TOP: -1 NEXT: 67 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 39 MPC: 10 IR: drop None TOP: -1 NEXT: 67 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 40 MPC: 0 IR: drop None TOP: 67 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 41 MPC: 1 IR: drop None TOP: 67 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 42 MPC: 2 IR: push const 11 TOP: 67 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 43 MPC: 22 IR: push const 11 TOP: 67 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 44 MPC: 23 IR: push const 11 TOP: -1 NEXT: 67 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 45 MPC: 0 IR: push const 11 TOP: 11 NEXT: 67 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 46 MPC: 1 IR: push const 11 TOP: 11 NEXT: 67 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 47 MPC: 2 IR: emit None TOP: 11 NEXT: 67 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 48 MPC: 25 IR: emit None TOP: 11 NEXT: 67 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 49 MPC: 26 IR: emit None TOP: 67 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT:  << '67'
+  DEBUG   machine:simulation    [9: emit] TICK: 50 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 51 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 52 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 53 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 54 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 55 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 56 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 57 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 58 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 59 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 60 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 61 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 62 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 63 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 64 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 65 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 66 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 67 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 68 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 69 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 70 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 71 MPC: 23 IR: push const 10 TOP: 67 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 72 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 73 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 74 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 75 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: 'a'
+  DEBUG   machine:simulation    [2: read] TICK: 76 MPC: 0 IR: read None TOP: 97 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 77 MPC: 1 IR: read None TOP: 97 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 78 MPC: 2 IR: dup None TOP: 97 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 79 MPC: 18 IR: dup None TOP: 97 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 80 MPC: 19 IR: dup None TOP: 11 NEXT: 97 RS: 97 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 81 MPC: 0 IR: dup None TOP: 97 NEXT: 97 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 82 MPC: 1 IR: dup None TOP: 97 NEXT: 97 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 83 MPC: 2 IR: push const 0 TOP: 97 NEXT: 97 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 84 MPC: 22 IR: push const 0 TOP: 97 NEXT: 97 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 85 MPC: 23 IR: push const 0 TOP: 0 NEXT: 97 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 86 MPC: 0 IR: push const 0 TOP: 0 NEXT: 97 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 87 MPC: 1 IR: push const 0 TOP: 0 NEXT: 97 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 88 MPC: 2 IR: eq None TOP: 0 NEXT: 97 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 89 MPC: 15 IR: eq None TOP: 0 NEXT: 97 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 90 MPC: 0 IR: eq None TOP: -1 NEXT: 97 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 91 MPC: 1 IR: eq None TOP: -1 NEXT: 97 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 92 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 97 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 93 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 97 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 94 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 97 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 95 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 97 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 96 MPC: 2 IR: drop None TOP: -1 NEXT: 97 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 97 MPC: 10 IR: drop None TOP: -1 NEXT: 97 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 98 MPC: 0 IR: drop None TOP: 97 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 99 MPC: 1 IR: drop None TOP: 97 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 100 MPC: 2 IR: push const 11 TOP: 97 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 101 MPC: 22 IR: push const 11 TOP: 97 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 102 MPC: 23 IR: push const 11 TOP: -1 NEXT: 97 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 103 MPC: 0 IR: push const 11 TOP: 11 NEXT: 97 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 104 MPC: 1 IR: push const 11 TOP: 11 NEXT: 97 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 105 MPC: 2 IR: emit None TOP: 11 NEXT: 97 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 106 MPC: 25 IR: emit None TOP: 11 NEXT: 97 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 107 MPC: 26 IR: emit None TOP: 97 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: C << '97'
+  DEBUG   machine:simulation    [9: emit] TICK: 108 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 109 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 110 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 111 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 112 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 113 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 114 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 115 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 116 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 117 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 118 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 119 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 120 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 121 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 122 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 123 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 124 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 125 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 126 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 127 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 128 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 129 MPC: 23 IR: push const 10 TOP: 97 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 130 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 131 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 132 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 133 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: 't'
+  DEBUG   machine:simulation    [2: read] TICK: 134 MPC: 0 IR: read None TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 135 MPC: 1 IR: read None TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 136 MPC: 2 IR: dup None TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 137 MPC: 18 IR: dup None TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 138 MPC: 19 IR: dup None TOP: 11 NEXT: 116 RS: 116 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 139 MPC: 0 IR: dup None TOP: 116 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 140 MPC: 1 IR: dup None TOP: 116 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 141 MPC: 2 IR: push const 0 TOP: 116 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 142 MPC: 22 IR: push const 0 TOP: 116 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 143 MPC: 23 IR: push const 0 TOP: 0 NEXT: 116 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 144 MPC: 0 IR: push const 0 TOP: 0 NEXT: 116 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 145 MPC: 1 IR: push const 0 TOP: 0 NEXT: 116 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 146 MPC: 2 IR: eq None TOP: 0 NEXT: 116 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 147 MPC: 15 IR: eq None TOP: 0 NEXT: 116 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 148 MPC: 0 IR: eq None TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 149 MPC: 1 IR: eq None TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 150 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 151 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 152 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 153 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 154 MPC: 2 IR: drop None TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 155 MPC: 10 IR: drop None TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 156 MPC: 0 IR: drop None TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 157 MPC: 1 IR: drop None TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 158 MPC: 2 IR: push const 11 TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 159 MPC: 22 IR: push const 11 TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 160 MPC: 23 IR: push const 11 TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 161 MPC: 0 IR: push const 11 TOP: 11 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 162 MPC: 1 IR: push const 11 TOP: 11 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 163 MPC: 2 IR: emit None TOP: 11 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 164 MPC: 25 IR: emit None TOP: 11 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 165 MPC: 26 IR: emit None TOP: 116 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Ca << '116'
+  DEBUG   machine:simulation    [9: emit] TICK: 166 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 167 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 168 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 169 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 170 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 171 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 172 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 173 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 174 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 175 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 176 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 177 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 178 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 179 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 180 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 181 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 182 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 183 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 184 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 185 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 186 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 187 MPC: 23 IR: push const 10 TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 188 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 189 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 190 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 191 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: ','
+  DEBUG   machine:simulation    [2: read] TICK: 192 MPC: 0 IR: read None TOP: 44 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 193 MPC: 1 IR: read None TOP: 44 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 194 MPC: 2 IR: dup None TOP: 44 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 195 MPC: 18 IR: dup None TOP: 44 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 196 MPC: 19 IR: dup None TOP: 11 NEXT: 44 RS: 44 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 197 MPC: 0 IR: dup None TOP: 44 NEXT: 44 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 198 MPC: 1 IR: dup None TOP: 44 NEXT: 44 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 199 MPC: 2 IR: push const 0 TOP: 44 NEXT: 44 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 200 MPC: 22 IR: push const 0 TOP: 44 NEXT: 44 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 201 MPC: 23 IR: push const 0 TOP: 0 NEXT: 44 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 202 MPC: 0 IR: push const 0 TOP: 0 NEXT: 44 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 203 MPC: 1 IR: push const 0 TOP: 0 NEXT: 44 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 204 MPC: 2 IR: eq None TOP: 0 NEXT: 44 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 205 MPC: 15 IR: eq None TOP: 0 NEXT: 44 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 206 MPC: 0 IR: eq None TOP: -1 NEXT: 44 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 207 MPC: 1 IR: eq None TOP: -1 NEXT: 44 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 208 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 44 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 209 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 44 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 210 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 44 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 211 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 44 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 212 MPC: 2 IR: drop None TOP: -1 NEXT: 44 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 213 MPC: 10 IR: drop None TOP: -1 NEXT: 44 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 214 MPC: 0 IR: drop None TOP: 44 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 215 MPC: 1 IR: drop None TOP: 44 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 216 MPC: 2 IR: push const 11 TOP: 44 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 217 MPC: 22 IR: push const 11 TOP: 44 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 218 MPC: 23 IR: push const 11 TOP: -1 NEXT: 44 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 219 MPC: 0 IR: push const 11 TOP: 11 NEXT: 44 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 220 MPC: 1 IR: push const 11 TOP: 11 NEXT: 44 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 221 MPC: 2 IR: emit None TOP: 11 NEXT: 44 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 222 MPC: 25 IR: emit None TOP: 11 NEXT: 44 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 223 MPC: 26 IR: emit None TOP: 44 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat << '44'
+  DEBUG   machine:simulation    [9: emit] TICK: 224 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 225 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 226 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 227 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 228 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 229 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 230 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 231 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 232 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 233 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 234 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 235 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 236 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 237 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 238 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 239 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 240 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 241 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 242 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 243 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 244 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 245 MPC: 23 IR: push const 10 TOP: 44 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 246 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 247 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 248 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 249 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: ' '
+  DEBUG   machine:simulation    [2: read] TICK: 250 MPC: 0 IR: read None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 251 MPC: 1 IR: read None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 252 MPC: 2 IR: dup None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 253 MPC: 18 IR: dup None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 254 MPC: 19 IR: dup None TOP: 11 NEXT: 32 RS: 32 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 255 MPC: 0 IR: dup None TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 256 MPC: 1 IR: dup None TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 257 MPC: 2 IR: push const 0 TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 258 MPC: 22 IR: push const 0 TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 259 MPC: 23 IR: push const 0 TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 260 MPC: 0 IR: push const 0 TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 261 MPC: 1 IR: push const 0 TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 262 MPC: 2 IR: eq None TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 263 MPC: 15 IR: eq None TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 264 MPC: 0 IR: eq None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 265 MPC: 1 IR: eq None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 266 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 267 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 268 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 269 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 270 MPC: 2 IR: drop None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 271 MPC: 10 IR: drop None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 272 MPC: 0 IR: drop None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 273 MPC: 1 IR: drop None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 274 MPC: 2 IR: push const 11 TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 275 MPC: 22 IR: push const 11 TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 276 MPC: 23 IR: push const 11 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 277 MPC: 0 IR: push const 11 TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 278 MPC: 1 IR: push const 11 TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 279 MPC: 2 IR: emit None TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 280 MPC: 25 IR: emit None TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 281 MPC: 26 IR: emit None TOP: 32 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, << '32'
+  DEBUG   machine:simulation    [9: emit] TICK: 282 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 283 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 284 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 285 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 286 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 287 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 288 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 289 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 290 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 291 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 292 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 293 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 294 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 295 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 296 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 297 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 298 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 299 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 300 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 301 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 302 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 303 MPC: 23 IR: push const 10 TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 304 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 305 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 306 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 307 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: 'd'
+  DEBUG   machine:simulation    [2: read] TICK: 308 MPC: 0 IR: read None TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 309 MPC: 1 IR: read None TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 310 MPC: 2 IR: dup None TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 311 MPC: 18 IR: dup None TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 312 MPC: 19 IR: dup None TOP: 11 NEXT: 100 RS: 100 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 313 MPC: 0 IR: dup None TOP: 100 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 314 MPC: 1 IR: dup None TOP: 100 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 315 MPC: 2 IR: push const 0 TOP: 100 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 316 MPC: 22 IR: push const 0 TOP: 100 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 317 MPC: 23 IR: push const 0 TOP: 0 NEXT: 100 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 318 MPC: 0 IR: push const 0 TOP: 0 NEXT: 100 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 319 MPC: 1 IR: push const 0 TOP: 0 NEXT: 100 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 320 MPC: 2 IR: eq None TOP: 0 NEXT: 100 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 321 MPC: 15 IR: eq None TOP: 0 NEXT: 100 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 322 MPC: 0 IR: eq None TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 323 MPC: 1 IR: eq None TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 324 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 325 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 326 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 327 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 328 MPC: 2 IR: drop None TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 329 MPC: 10 IR: drop None TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 330 MPC: 0 IR: drop None TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 331 MPC: 1 IR: drop None TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 332 MPC: 2 IR: push const 11 TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 333 MPC: 22 IR: push const 11 TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 334 MPC: 23 IR: push const 11 TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 335 MPC: 0 IR: push const 11 TOP: 11 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 336 MPC: 1 IR: push const 11 TOP: 11 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 337 MPC: 2 IR: emit None TOP: 11 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 338 MPC: 25 IR: emit None TOP: 11 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 339 MPC: 26 IR: emit None TOP: 100 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat,  << '100'
+  DEBUG   machine:simulation    [9: emit] TICK: 340 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 341 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 342 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 343 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 344 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 345 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 346 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 347 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 348 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 349 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 350 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 351 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 352 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 353 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 354 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 355 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 356 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 357 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 358 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 359 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 360 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 361 MPC: 23 IR: push const 10 TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 362 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 363 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 364 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 365 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: 'o'
+  DEBUG   machine:simulation    [2: read] TICK: 366 MPC: 0 IR: read None TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 367 MPC: 1 IR: read None TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 368 MPC: 2 IR: dup None TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 369 MPC: 18 IR: dup None TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 370 MPC: 19 IR: dup None TOP: 11 NEXT: 111 RS: 111 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 371 MPC: 0 IR: dup None TOP: 111 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 372 MPC: 1 IR: dup None TOP: 111 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 373 MPC: 2 IR: push const 0 TOP: 111 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 374 MPC: 22 IR: push const 0 TOP: 111 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 375 MPC: 23 IR: push const 0 TOP: 0 NEXT: 111 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 376 MPC: 0 IR: push const 0 TOP: 0 NEXT: 111 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 377 MPC: 1 IR: push const 0 TOP: 0 NEXT: 111 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 378 MPC: 2 IR: eq None TOP: 0 NEXT: 111 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 379 MPC: 15 IR: eq None TOP: 0 NEXT: 111 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 380 MPC: 0 IR: eq None TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 381 MPC: 1 IR: eq None TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 382 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 383 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 384 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 385 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 386 MPC: 2 IR: drop None TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 387 MPC: 10 IR: drop None TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 388 MPC: 0 IR: drop None TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 389 MPC: 1 IR: drop None TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 390 MPC: 2 IR: push const 11 TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 391 MPC: 22 IR: push const 11 TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 392 MPC: 23 IR: push const 11 TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 393 MPC: 0 IR: push const 11 TOP: 11 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 394 MPC: 1 IR: push const 11 TOP: 11 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 395 MPC: 2 IR: emit None TOP: 11 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 396 MPC: 25 IR: emit None TOP: 11 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 397 MPC: 26 IR: emit None TOP: 111 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, d << '111'
+  DEBUG   machine:simulation    [9: emit] TICK: 398 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 399 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 400 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 401 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 402 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 403 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 404 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 405 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 406 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 407 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 408 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 409 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 410 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 411 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 412 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 413 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 414 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 415 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 416 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 417 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 418 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 419 MPC: 23 IR: push const 10 TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 420 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 421 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 422 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 423 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: 'g'
+  DEBUG   machine:simulation    [2: read] TICK: 424 MPC: 0 IR: read None TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 425 MPC: 1 IR: read None TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 426 MPC: 2 IR: dup None TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 427 MPC: 18 IR: dup None TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 428 MPC: 19 IR: dup None TOP: 11 NEXT: 103 RS: 103 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 429 MPC: 0 IR: dup None TOP: 103 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 430 MPC: 1 IR: dup None TOP: 103 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 431 MPC: 2 IR: push const 0 TOP: 103 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 432 MPC: 22 IR: push const 0 TOP: 103 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 433 MPC: 23 IR: push const 0 TOP: 0 NEXT: 103 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 434 MPC: 0 IR: push const 0 TOP: 0 NEXT: 103 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 435 MPC: 1 IR: push const 0 TOP: 0 NEXT: 103 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 436 MPC: 2 IR: eq None TOP: 0 NEXT: 103 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 437 MPC: 15 IR: eq None TOP: 0 NEXT: 103 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 438 MPC: 0 IR: eq None TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 439 MPC: 1 IR: eq None TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 440 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 441 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 442 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 443 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 444 MPC: 2 IR: drop None TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 445 MPC: 10 IR: drop None TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 446 MPC: 0 IR: drop None TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 447 MPC: 1 IR: drop None TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 448 MPC: 2 IR: push const 11 TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 449 MPC: 22 IR: push const 11 TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 450 MPC: 23 IR: push const 11 TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 451 MPC: 0 IR: push const 11 TOP: 11 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 452 MPC: 1 IR: push const 11 TOP: 11 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 453 MPC: 2 IR: emit None TOP: 11 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 454 MPC: 25 IR: emit None TOP: 11 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 455 MPC: 26 IR: emit None TOP: 103 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, do << '103'
+  DEBUG   machine:simulation    [9: emit] TICK: 456 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 457 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 458 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 459 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 460 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 461 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 462 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 463 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 464 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 465 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 466 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 467 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 468 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 469 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 470 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 471 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 472 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 473 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 474 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 475 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 476 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 477 MPC: 23 IR: push const 10 TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 478 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 479 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 480 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 481 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: ' '
+  DEBUG   machine:simulation    [2: read] TICK: 482 MPC: 0 IR: read None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 483 MPC: 1 IR: read None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 484 MPC: 2 IR: dup None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 485 MPC: 18 IR: dup None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 486 MPC: 19 IR: dup None TOP: 11 NEXT: 32 RS: 32 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 487 MPC: 0 IR: dup None TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 488 MPC: 1 IR: dup None TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 489 MPC: 2 IR: push const 0 TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 490 MPC: 22 IR: push const 0 TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 491 MPC: 23 IR: push const 0 TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 492 MPC: 0 IR: push const 0 TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 493 MPC: 1 IR: push const 0 TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 494 MPC: 2 IR: eq None TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 495 MPC: 15 IR: eq None TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 496 MPC: 0 IR: eq None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 497 MPC: 1 IR: eq None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 498 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 499 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 500 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 501 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 502 MPC: 2 IR: drop None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 503 MPC: 10 IR: drop None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 504 MPC: 0 IR: drop None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 505 MPC: 1 IR: drop None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 506 MPC: 2 IR: push const 11 TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 507 MPC: 22 IR: push const 11 TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 508 MPC: 23 IR: push const 11 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 509 MPC: 0 IR: push const 11 TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 510 MPC: 1 IR: push const 11 TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 511 MPC: 2 IR: emit None TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 512 MPC: 25 IR: emit None TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 513 MPC: 26 IR: emit None TOP: 32 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, dog << '32'
+  DEBUG   machine:simulation    [9: emit] TICK: 514 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 515 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 516 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 517 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 518 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 519 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 520 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 521 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 522 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 523 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 524 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 525 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 526 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 527 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 528 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 529 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 530 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 531 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 532 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 533 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 534 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 535 MPC: 23 IR: push const 10 TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 536 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 537 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 538 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 539 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: '-'
+  DEBUG   machine:simulation    [2: read] TICK: 540 MPC: 0 IR: read None TOP: 45 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 541 MPC: 1 IR: read None TOP: 45 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 542 MPC: 2 IR: dup None TOP: 45 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 543 MPC: 18 IR: dup None TOP: 45 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 544 MPC: 19 IR: dup None TOP: 11 NEXT: 45 RS: 45 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 545 MPC: 0 IR: dup None TOP: 45 NEXT: 45 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 546 MPC: 1 IR: dup None TOP: 45 NEXT: 45 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 547 MPC: 2 IR: push const 0 TOP: 45 NEXT: 45 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 548 MPC: 22 IR: push const 0 TOP: 45 NEXT: 45 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 549 MPC: 23 IR: push const 0 TOP: 0 NEXT: 45 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 550 MPC: 0 IR: push const 0 TOP: 0 NEXT: 45 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 551 MPC: 1 IR: push const 0 TOP: 0 NEXT: 45 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 552 MPC: 2 IR: eq None TOP: 0 NEXT: 45 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 553 MPC: 15 IR: eq None TOP: 0 NEXT: 45 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 554 MPC: 0 IR: eq None TOP: -1 NEXT: 45 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 555 MPC: 1 IR: eq None TOP: -1 NEXT: 45 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 556 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 45 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 557 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 45 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 558 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 45 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 559 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 45 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 560 MPC: 2 IR: drop None TOP: -1 NEXT: 45 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 561 MPC: 10 IR: drop None TOP: -1 NEXT: 45 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 562 MPC: 0 IR: drop None TOP: 45 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 563 MPC: 1 IR: drop None TOP: 45 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 564 MPC: 2 IR: push const 11 TOP: 45 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 565 MPC: 22 IR: push const 11 TOP: 45 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 566 MPC: 23 IR: push const 11 TOP: -1 NEXT: 45 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 567 MPC: 0 IR: push const 11 TOP: 11 NEXT: 45 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 568 MPC: 1 IR: push const 11 TOP: 11 NEXT: 45 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 569 MPC: 2 IR: emit None TOP: 11 NEXT: 45 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 570 MPC: 25 IR: emit None TOP: 11 NEXT: 45 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 571 MPC: 26 IR: emit None TOP: 45 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, dog  << '45'
+  DEBUG   machine:simulation    [9: emit] TICK: 572 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 573 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 574 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 575 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 576 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 577 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 578 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 579 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 580 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 581 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 582 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 583 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 584 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 585 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 586 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 587 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 588 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 589 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 590 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 591 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 592 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 593 MPC: 23 IR: push const 10 TOP: 45 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 594 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 595 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 596 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 597 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: ' '
+  DEBUG   machine:simulation    [2: read] TICK: 598 MPC: 0 IR: read None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 599 MPC: 1 IR: read None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 600 MPC: 2 IR: dup None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 601 MPC: 18 IR: dup None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 602 MPC: 19 IR: dup None TOP: 11 NEXT: 32 RS: 32 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 603 MPC: 0 IR: dup None TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 604 MPC: 1 IR: dup None TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 605 MPC: 2 IR: push const 0 TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 606 MPC: 22 IR: push const 0 TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 607 MPC: 23 IR: push const 0 TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 608 MPC: 0 IR: push const 0 TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 609 MPC: 1 IR: push const 0 TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 610 MPC: 2 IR: eq None TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 611 MPC: 15 IR: eq None TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 612 MPC: 0 IR: eq None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 613 MPC: 1 IR: eq None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 614 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 615 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 616 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 617 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 618 MPC: 2 IR: drop None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 619 MPC: 10 IR: drop None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 620 MPC: 0 IR: drop None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 621 MPC: 1 IR: drop None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 622 MPC: 2 IR: push const 11 TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 623 MPC: 22 IR: push const 11 TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 624 MPC: 23 IR: push const 11 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 625 MPC: 0 IR: push const 11 TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 626 MPC: 1 IR: push const 11 TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 627 MPC: 2 IR: emit None TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 628 MPC: 25 IR: emit None TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 629 MPC: 26 IR: emit None TOP: 32 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, dog - << '32'
+  DEBUG   machine:simulation    [9: emit] TICK: 630 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 631 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 632 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 633 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 634 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 635 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 636 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 637 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 638 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 639 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 640 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 641 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 642 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 643 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 644 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 645 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 646 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 647 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 648 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 649 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 650 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 651 MPC: 23 IR: push const 10 TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 652 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 653 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 654 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 655 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: 'b'
+  DEBUG   machine:simulation    [2: read] TICK: 656 MPC: 0 IR: read None TOP: 98 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 657 MPC: 1 IR: read None TOP: 98 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 658 MPC: 2 IR: dup None TOP: 98 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 659 MPC: 18 IR: dup None TOP: 98 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 660 MPC: 19 IR: dup None TOP: 11 NEXT: 98 RS: 98 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 661 MPC: 0 IR: dup None TOP: 98 NEXT: 98 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 662 MPC: 1 IR: dup None TOP: 98 NEXT: 98 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 663 MPC: 2 IR: push const 0 TOP: 98 NEXT: 98 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 664 MPC: 22 IR: push const 0 TOP: 98 NEXT: 98 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 665 MPC: 23 IR: push const 0 TOP: 0 NEXT: 98 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 666 MPC: 0 IR: push const 0 TOP: 0 NEXT: 98 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 667 MPC: 1 IR: push const 0 TOP: 0 NEXT: 98 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 668 MPC: 2 IR: eq None TOP: 0 NEXT: 98 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 669 MPC: 15 IR: eq None TOP: 0 NEXT: 98 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 670 MPC: 0 IR: eq None TOP: -1 NEXT: 98 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 671 MPC: 1 IR: eq None TOP: -1 NEXT: 98 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 672 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 98 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 673 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 98 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 674 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 98 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 675 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 98 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 676 MPC: 2 IR: drop None TOP: -1 NEXT: 98 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 677 MPC: 10 IR: drop None TOP: -1 NEXT: 98 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 678 MPC: 0 IR: drop None TOP: 98 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 679 MPC: 1 IR: drop None TOP: 98 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 680 MPC: 2 IR: push const 11 TOP: 98 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 681 MPC: 22 IR: push const 11 TOP: 98 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 682 MPC: 23 IR: push const 11 TOP: -1 NEXT: 98 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 683 MPC: 0 IR: push const 11 TOP: 11 NEXT: 98 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 684 MPC: 1 IR: push const 11 TOP: 11 NEXT: 98 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 685 MPC: 2 IR: emit None TOP: 11 NEXT: 98 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 686 MPC: 25 IR: emit None TOP: 11 NEXT: 98 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 687 MPC: 26 IR: emit None TOP: 98 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, dog -  << '98'
+  DEBUG   machine:simulation    [9: emit] TICK: 688 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 689 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 690 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 691 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 692 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 693 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 694 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 695 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 696 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 697 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 698 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 699 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 700 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 701 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 702 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 703 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 704 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 705 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 706 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 707 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 708 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 709 MPC: 23 IR: push const 10 TOP: 98 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 710 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 711 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 712 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 713 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: 'i'
+  DEBUG   machine:simulation    [2: read] TICK: 714 MPC: 0 IR: read None TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 715 MPC: 1 IR: read None TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 716 MPC: 2 IR: dup None TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 717 MPC: 18 IR: dup None TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 718 MPC: 19 IR: dup None TOP: 11 NEXT: 105 RS: 105 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 719 MPC: 0 IR: dup None TOP: 105 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 720 MPC: 1 IR: dup None TOP: 105 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 721 MPC: 2 IR: push const 0 TOP: 105 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 722 MPC: 22 IR: push const 0 TOP: 105 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 723 MPC: 23 IR: push const 0 TOP: 0 NEXT: 105 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 724 MPC: 0 IR: push const 0 TOP: 0 NEXT: 105 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 725 MPC: 1 IR: push const 0 TOP: 0 NEXT: 105 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 726 MPC: 2 IR: eq None TOP: 0 NEXT: 105 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 727 MPC: 15 IR: eq None TOP: 0 NEXT: 105 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 728 MPC: 0 IR: eq None TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 729 MPC: 1 IR: eq None TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 730 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 731 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 732 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 733 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 734 MPC: 2 IR: drop None TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 735 MPC: 10 IR: drop None TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 736 MPC: 0 IR: drop None TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 737 MPC: 1 IR: drop None TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 738 MPC: 2 IR: push const 11 TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 739 MPC: 22 IR: push const 11 TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 740 MPC: 23 IR: push const 11 TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 741 MPC: 0 IR: push const 11 TOP: 11 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 742 MPC: 1 IR: push const 11 TOP: 11 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 743 MPC: 2 IR: emit None TOP: 11 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 744 MPC: 25 IR: emit None TOP: 11 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 745 MPC: 26 IR: emit None TOP: 105 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, dog - b << '105'
+  DEBUG   machine:simulation    [9: emit] TICK: 746 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 747 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 748 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 749 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 750 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 751 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 752 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 753 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 754 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 755 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 756 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 757 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 758 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 759 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 760 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 761 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 762 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 763 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 764 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 765 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 766 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 767 MPC: 23 IR: push const 10 TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 768 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 769 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 770 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 771 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: 'r'
+  DEBUG   machine:simulation    [2: read] TICK: 772 MPC: 0 IR: read None TOP: 114 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 773 MPC: 1 IR: read None TOP: 114 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 774 MPC: 2 IR: dup None TOP: 114 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 775 MPC: 18 IR: dup None TOP: 114 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 776 MPC: 19 IR: dup None TOP: 11 NEXT: 114 RS: 114 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 777 MPC: 0 IR: dup None TOP: 114 NEXT: 114 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 778 MPC: 1 IR: dup None TOP: 114 NEXT: 114 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 779 MPC: 2 IR: push const 0 TOP: 114 NEXT: 114 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 780 MPC: 22 IR: push const 0 TOP: 114 NEXT: 114 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 781 MPC: 23 IR: push const 0 TOP: 0 NEXT: 114 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 782 MPC: 0 IR: push const 0 TOP: 0 NEXT: 114 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 783 MPC: 1 IR: push const 0 TOP: 0 NEXT: 114 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 784 MPC: 2 IR: eq None TOP: 0 NEXT: 114 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 785 MPC: 15 IR: eq None TOP: 0 NEXT: 114 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 786 MPC: 0 IR: eq None TOP: -1 NEXT: 114 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 787 MPC: 1 IR: eq None TOP: -1 NEXT: 114 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 788 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 114 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 789 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 114 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 790 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 114 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 791 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 114 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 792 MPC: 2 IR: drop None TOP: -1 NEXT: 114 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 793 MPC: 10 IR: drop None TOP: -1 NEXT: 114 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 794 MPC: 0 IR: drop None TOP: 114 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 795 MPC: 1 IR: drop None TOP: 114 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 796 MPC: 2 IR: push const 11 TOP: 114 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 797 MPC: 22 IR: push const 11 TOP: 114 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 798 MPC: 23 IR: push const 11 TOP: -1 NEXT: 114 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 799 MPC: 0 IR: push const 11 TOP: 11 NEXT: 114 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 800 MPC: 1 IR: push const 11 TOP: 11 NEXT: 114 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 801 MPC: 2 IR: emit None TOP: 11 NEXT: 114 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 802 MPC: 25 IR: emit None TOP: 11 NEXT: 114 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 803 MPC: 26 IR: emit None TOP: 114 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, dog - bi << '114'
+  DEBUG   machine:simulation    [9: emit] TICK: 804 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 805 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 806 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 807 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 808 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 809 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 810 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 811 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 812 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 813 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 814 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 815 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 816 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 817 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 818 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 819 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 820 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 821 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 822 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 823 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 824 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 825 MPC: 23 IR: push const 10 TOP: 114 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 826 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 827 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 828 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 829 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: 'd'
+  DEBUG   machine:simulation    [2: read] TICK: 830 MPC: 0 IR: read None TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 831 MPC: 1 IR: read None TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 832 MPC: 2 IR: dup None TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 833 MPC: 18 IR: dup None TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 834 MPC: 19 IR: dup None TOP: 11 NEXT: 100 RS: 100 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 835 MPC: 0 IR: dup None TOP: 100 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 836 MPC: 1 IR: dup None TOP: 100 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 837 MPC: 2 IR: push const 0 TOP: 100 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 838 MPC: 22 IR: push const 0 TOP: 100 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 839 MPC: 23 IR: push const 0 TOP: 0 NEXT: 100 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 840 MPC: 0 IR: push const 0 TOP: 0 NEXT: 100 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 841 MPC: 1 IR: push const 0 TOP: 0 NEXT: 100 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 842 MPC: 2 IR: eq None TOP: 0 NEXT: 100 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 843 MPC: 15 IR: eq None TOP: 0 NEXT: 100 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 844 MPC: 0 IR: eq None TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 845 MPC: 1 IR: eq None TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 846 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 847 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 848 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 849 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 850 MPC: 2 IR: drop None TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 851 MPC: 10 IR: drop None TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 852 MPC: 0 IR: drop None TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 853 MPC: 1 IR: drop None TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 854 MPC: 2 IR: push const 11 TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 855 MPC: 22 IR: push const 11 TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 856 MPC: 23 IR: push const 11 TOP: -1 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 857 MPC: 0 IR: push const 11 TOP: 11 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 858 MPC: 1 IR: push const 11 TOP: 11 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 859 MPC: 2 IR: emit None TOP: 11 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 860 MPC: 25 IR: emit None TOP: 11 NEXT: 100 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 861 MPC: 26 IR: emit None TOP: 100 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, dog - bir << '100'
+  DEBUG   machine:simulation    [9: emit] TICK: 862 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 863 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 864 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 865 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 866 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 867 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 868 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 869 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 870 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 871 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 872 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 873 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 874 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 875 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 876 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 877 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 878 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 879 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 880 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 881 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 882 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 883 MPC: 23 IR: push const 10 TOP: 100 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 884 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 885 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 886 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 887 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: ' '
+  DEBUG   machine:simulation    [2: read] TICK: 888 MPC: 0 IR: read None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 889 MPC: 1 IR: read None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 890 MPC: 2 IR: dup None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 891 MPC: 18 IR: dup None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 892 MPC: 19 IR: dup None TOP: 11 NEXT: 32 RS: 32 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 893 MPC: 0 IR: dup None TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 894 MPC: 1 IR: dup None TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 895 MPC: 2 IR: push const 0 TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 896 MPC: 22 IR: push const 0 TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 897 MPC: 23 IR: push const 0 TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 898 MPC: 0 IR: push const 0 TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 899 MPC: 1 IR: push const 0 TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 900 MPC: 2 IR: eq None TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 901 MPC: 15 IR: eq None TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 902 MPC: 0 IR: eq None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 903 MPC: 1 IR: eq None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 904 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 905 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 906 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 907 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 908 MPC: 2 IR: drop None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 909 MPC: 10 IR: drop None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 910 MPC: 0 IR: drop None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 911 MPC: 1 IR: drop None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 912 MPC: 2 IR: push const 11 TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 913 MPC: 22 IR: push const 11 TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 914 MPC: 23 IR: push const 11 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 915 MPC: 0 IR: push const 11 TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 916 MPC: 1 IR: push const 11 TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 917 MPC: 2 IR: emit None TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 918 MPC: 25 IR: emit None TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 919 MPC: 26 IR: emit None TOP: 32 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, dog - bird << '32'
+  DEBUG   machine:simulation    [9: emit] TICK: 920 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 921 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 922 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 923 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 924 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 925 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 926 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 927 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 928 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 929 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 930 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 931 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 932 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 933 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 934 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 935 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 936 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 937 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 938 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 939 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 940 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 941 MPC: 23 IR: push const 10 TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 942 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 943 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 944 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 945 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: ':'
+  DEBUG   machine:simulation    [2: read] TICK: 946 MPC: 0 IR: read None TOP: 58 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 947 MPC: 1 IR: read None TOP: 58 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 948 MPC: 2 IR: dup None TOP: 58 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 949 MPC: 18 IR: dup None TOP: 58 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 950 MPC: 19 IR: dup None TOP: 11 NEXT: 58 RS: 58 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 951 MPC: 0 IR: dup None TOP: 58 NEXT: 58 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 952 MPC: 1 IR: dup None TOP: 58 NEXT: 58 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 953 MPC: 2 IR: push const 0 TOP: 58 NEXT: 58 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 954 MPC: 22 IR: push const 0 TOP: 58 NEXT: 58 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 955 MPC: 23 IR: push const 0 TOP: 0 NEXT: 58 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 956 MPC: 0 IR: push const 0 TOP: 0 NEXT: 58 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 957 MPC: 1 IR: push const 0 TOP: 0 NEXT: 58 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 958 MPC: 2 IR: eq None TOP: 0 NEXT: 58 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 959 MPC: 15 IR: eq None TOP: 0 NEXT: 58 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 960 MPC: 0 IR: eq None TOP: -1 NEXT: 58 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 961 MPC: 1 IR: eq None TOP: -1 NEXT: 58 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 962 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 58 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 963 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 58 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 964 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 58 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 965 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 58 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 966 MPC: 2 IR: drop None TOP: -1 NEXT: 58 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 967 MPC: 10 IR: drop None TOP: -1 NEXT: 58 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 968 MPC: 0 IR: drop None TOP: 58 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 969 MPC: 1 IR: drop None TOP: 58 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 970 MPC: 2 IR: push const 11 TOP: 58 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 971 MPC: 22 IR: push const 11 TOP: 58 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 972 MPC: 23 IR: push const 11 TOP: -1 NEXT: 58 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 973 MPC: 0 IR: push const 11 TOP: 11 NEXT: 58 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 974 MPC: 1 IR: push const 11 TOP: 11 NEXT: 58 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 975 MPC: 2 IR: emit None TOP: 11 NEXT: 58 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 976 MPC: 25 IR: emit None TOP: 11 NEXT: 58 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 977 MPC: 26 IR: emit None TOP: 58 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, dog - bird  << '58'
+  DEBUG   machine:simulation    [9: emit] TICK: 978 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 979 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 980 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 981 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 982 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 983 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 984 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 985 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 986 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 987 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 988 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 989 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 990 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 991 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 992 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 993 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 994 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 995 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 996 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 997 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 998 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 999 MPC: 23 IR: push const 10 TOP: 58 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1000 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 1001 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1002 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1003 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: ' '
+  DEBUG   machine:simulation    [2: read] TICK: 1004 MPC: 0 IR: read None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 1005 MPC: 1 IR: read None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1006 MPC: 2 IR: dup None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1007 MPC: 18 IR: dup None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1008 MPC: 19 IR: dup None TOP: 11 NEXT: 32 RS: 32 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 1009 MPC: 0 IR: dup None TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 1010 MPC: 1 IR: dup None TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1011 MPC: 2 IR: push const 0 TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1012 MPC: 22 IR: push const 0 TOP: 32 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1013 MPC: 23 IR: push const 0 TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1014 MPC: 0 IR: push const 0 TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 1015 MPC: 1 IR: push const 0 TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1016 MPC: 2 IR: eq None TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1017 MPC: 15 IR: eq None TOP: 0 NEXT: 32 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1018 MPC: 0 IR: eq None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 1019 MPC: 1 IR: eq None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1020 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1021 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1022 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 1023 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1024 MPC: 2 IR: drop None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1025 MPC: 10 IR: drop None TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1026 MPC: 0 IR: drop None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 1027 MPC: 1 IR: drop None TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1028 MPC: 2 IR: push const 11 TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1029 MPC: 22 IR: push const 11 TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1030 MPC: 23 IR: push const 11 TOP: -1 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1031 MPC: 0 IR: push const 11 TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 1032 MPC: 1 IR: push const 11 TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1033 MPC: 2 IR: emit None TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1034 MPC: 25 IR: emit None TOP: 11 NEXT: 32 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1035 MPC: 26 IR: emit None TOP: 32 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, dog - bird : << '32'
+  DEBUG   machine:simulation    [9: emit] TICK: 1036 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 1037 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 1038 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 1039 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 1040 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 1041 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1042 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1043 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 1044 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 1045 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1046 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1047 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 1048 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 1049 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1050 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1051 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1052 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 1053 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 1054 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1055 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1056 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1057 MPC: 23 IR: push const 10 TOP: 32 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1058 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 1059 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1060 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1061 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: 'n'
+  DEBUG   machine:simulation    [2: read] TICK: 1062 MPC: 0 IR: read None TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 1063 MPC: 1 IR: read None TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1064 MPC: 2 IR: dup None TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1065 MPC: 18 IR: dup None TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1066 MPC: 19 IR: dup None TOP: 11 NEXT: 110 RS: 110 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 1067 MPC: 0 IR: dup None TOP: 110 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 1068 MPC: 1 IR: dup None TOP: 110 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1069 MPC: 2 IR: push const 0 TOP: 110 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1070 MPC: 22 IR: push const 0 TOP: 110 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1071 MPC: 23 IR: push const 0 TOP: 0 NEXT: 110 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1072 MPC: 0 IR: push const 0 TOP: 0 NEXT: 110 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 1073 MPC: 1 IR: push const 0 TOP: 0 NEXT: 110 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1074 MPC: 2 IR: eq None TOP: 0 NEXT: 110 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1075 MPC: 15 IR: eq None TOP: 0 NEXT: 110 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1076 MPC: 0 IR: eq None TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 1077 MPC: 1 IR: eq None TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1078 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1079 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1080 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 1081 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1082 MPC: 2 IR: drop None TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1083 MPC: 10 IR: drop None TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1084 MPC: 0 IR: drop None TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 1085 MPC: 1 IR: drop None TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1086 MPC: 2 IR: push const 11 TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1087 MPC: 22 IR: push const 11 TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1088 MPC: 23 IR: push const 11 TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1089 MPC: 0 IR: push const 11 TOP: 11 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 1090 MPC: 1 IR: push const 11 TOP: 11 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1091 MPC: 2 IR: emit None TOP: 11 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1092 MPC: 25 IR: emit None TOP: 11 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1093 MPC: 26 IR: emit None TOP: 110 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, dog - bird :  << '110'
+  DEBUG   machine:simulation    [9: emit] TICK: 1094 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 1095 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 1096 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 1097 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 1098 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 1099 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1100 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1101 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 1102 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 1103 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1104 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1105 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 1106 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 1107 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1108 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1109 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1110 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 1111 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 1112 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1113 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1114 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1115 MPC: 23 IR: push const 10 TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1116 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 1117 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1118 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1119 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: 'o'
+  DEBUG   machine:simulation    [2: read] TICK: 1120 MPC: 0 IR: read None TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 1121 MPC: 1 IR: read None TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1122 MPC: 2 IR: dup None TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1123 MPC: 18 IR: dup None TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1124 MPC: 19 IR: dup None TOP: 11 NEXT: 111 RS: 111 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 1125 MPC: 0 IR: dup None TOP: 111 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 1126 MPC: 1 IR: dup None TOP: 111 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1127 MPC: 2 IR: push const 0 TOP: 111 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1128 MPC: 22 IR: push const 0 TOP: 111 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1129 MPC: 23 IR: push const 0 TOP: 0 NEXT: 111 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1130 MPC: 0 IR: push const 0 TOP: 0 NEXT: 111 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 1131 MPC: 1 IR: push const 0 TOP: 0 NEXT: 111 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1132 MPC: 2 IR: eq None TOP: 0 NEXT: 111 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1133 MPC: 15 IR: eq None TOP: 0 NEXT: 111 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1134 MPC: 0 IR: eq None TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 1135 MPC: 1 IR: eq None TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1136 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1137 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1138 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 1139 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1140 MPC: 2 IR: drop None TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1141 MPC: 10 IR: drop None TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1142 MPC: 0 IR: drop None TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 1143 MPC: 1 IR: drop None TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1144 MPC: 2 IR: push const 11 TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1145 MPC: 22 IR: push const 11 TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1146 MPC: 23 IR: push const 11 TOP: -1 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1147 MPC: 0 IR: push const 11 TOP: 11 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 1148 MPC: 1 IR: push const 11 TOP: 11 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1149 MPC: 2 IR: emit None TOP: 11 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1150 MPC: 25 IR: emit None TOP: 11 NEXT: 111 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1151 MPC: 26 IR: emit None TOP: 111 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, dog - bird : n << '111'
+  DEBUG   machine:simulation    [9: emit] TICK: 1152 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 1153 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 1154 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 1155 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 1156 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 1157 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1158 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1159 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 1160 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 1161 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1162 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1163 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 1164 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 1165 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1166 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1167 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1168 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 1169 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 1170 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1171 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1172 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1173 MPC: 23 IR: push const 10 TOP: 111 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1174 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 1175 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1176 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1177 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: 't'
+  DEBUG   machine:simulation    [2: read] TICK: 1178 MPC: 0 IR: read None TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 1179 MPC: 1 IR: read None TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1180 MPC: 2 IR: dup None TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1181 MPC: 18 IR: dup None TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1182 MPC: 19 IR: dup None TOP: 11 NEXT: 116 RS: 116 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 1183 MPC: 0 IR: dup None TOP: 116 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 1184 MPC: 1 IR: dup None TOP: 116 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1185 MPC: 2 IR: push const 0 TOP: 116 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1186 MPC: 22 IR: push const 0 TOP: 116 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1187 MPC: 23 IR: push const 0 TOP: 0 NEXT: 116 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1188 MPC: 0 IR: push const 0 TOP: 0 NEXT: 116 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 1189 MPC: 1 IR: push const 0 TOP: 0 NEXT: 116 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1190 MPC: 2 IR: eq None TOP: 0 NEXT: 116 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1191 MPC: 15 IR: eq None TOP: 0 NEXT: 116 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1192 MPC: 0 IR: eq None TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 1193 MPC: 1 IR: eq None TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1194 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1195 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1196 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 1197 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1198 MPC: 2 IR: drop None TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1199 MPC: 10 IR: drop None TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1200 MPC: 0 IR: drop None TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 1201 MPC: 1 IR: drop None TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1202 MPC: 2 IR: push const 11 TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1203 MPC: 22 IR: push const 11 TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1204 MPC: 23 IR: push const 11 TOP: -1 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1205 MPC: 0 IR: push const 11 TOP: 11 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 1206 MPC: 1 IR: push const 11 TOP: 11 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1207 MPC: 2 IR: emit None TOP: 11 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1208 MPC: 25 IR: emit None TOP: 11 NEXT: 116 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1209 MPC: 26 IR: emit None TOP: 116 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, dog - bird : no << '116'
+  DEBUG   machine:simulation    [9: emit] TICK: 1210 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 1211 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 1212 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 1213 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 1214 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 1215 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1216 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1217 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 1218 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 1219 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1220 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1221 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 1222 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 1223 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1224 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1225 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1226 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 1227 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 1228 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1229 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1230 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1231 MPC: 23 IR: push const 10 TOP: 116 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1232 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 1233 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1234 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1235 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: 'h'
+  DEBUG   machine:simulation    [2: read] TICK: 1236 MPC: 0 IR: read None TOP: 104 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 1237 MPC: 1 IR: read None TOP: 104 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1238 MPC: 2 IR: dup None TOP: 104 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1239 MPC: 18 IR: dup None TOP: 104 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1240 MPC: 19 IR: dup None TOP: 11 NEXT: 104 RS: 104 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 1241 MPC: 0 IR: dup None TOP: 104 NEXT: 104 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 1242 MPC: 1 IR: dup None TOP: 104 NEXT: 104 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1243 MPC: 2 IR: push const 0 TOP: 104 NEXT: 104 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1244 MPC: 22 IR: push const 0 TOP: 104 NEXT: 104 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1245 MPC: 23 IR: push const 0 TOP: 0 NEXT: 104 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1246 MPC: 0 IR: push const 0 TOP: 0 NEXT: 104 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 1247 MPC: 1 IR: push const 0 TOP: 0 NEXT: 104 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1248 MPC: 2 IR: eq None TOP: 0 NEXT: 104 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1249 MPC: 15 IR: eq None TOP: 0 NEXT: 104 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1250 MPC: 0 IR: eq None TOP: -1 NEXT: 104 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 1251 MPC: 1 IR: eq None TOP: -1 NEXT: 104 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1252 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 104 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1253 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 104 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1254 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 104 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 1255 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 104 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1256 MPC: 2 IR: drop None TOP: -1 NEXT: 104 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1257 MPC: 10 IR: drop None TOP: -1 NEXT: 104 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1258 MPC: 0 IR: drop None TOP: 104 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 1259 MPC: 1 IR: drop None TOP: 104 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1260 MPC: 2 IR: push const 11 TOP: 104 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1261 MPC: 22 IR: push const 11 TOP: 104 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1262 MPC: 23 IR: push const 11 TOP: -1 NEXT: 104 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1263 MPC: 0 IR: push const 11 TOP: 11 NEXT: 104 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 1264 MPC: 1 IR: push const 11 TOP: 11 NEXT: 104 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1265 MPC: 2 IR: emit None TOP: 11 NEXT: 104 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1266 MPC: 25 IR: emit None TOP: 11 NEXT: 104 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1267 MPC: 26 IR: emit None TOP: 104 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, dog - bird : not << '104'
+  DEBUG   machine:simulation    [9: emit] TICK: 1268 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 1269 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 1270 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 1271 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 1272 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 1273 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1274 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1275 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 1276 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 1277 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1278 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1279 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 1280 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 1281 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1282 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1283 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1284 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 1285 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 1286 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1287 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1288 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1289 MPC: 23 IR: push const 10 TOP: 104 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1290 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 1291 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1292 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1293 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: 'i'
+  DEBUG   machine:simulation    [2: read] TICK: 1294 MPC: 0 IR: read None TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 1295 MPC: 1 IR: read None TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1296 MPC: 2 IR: dup None TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1297 MPC: 18 IR: dup None TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1298 MPC: 19 IR: dup None TOP: 11 NEXT: 105 RS: 105 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 1299 MPC: 0 IR: dup None TOP: 105 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 1300 MPC: 1 IR: dup None TOP: 105 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1301 MPC: 2 IR: push const 0 TOP: 105 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1302 MPC: 22 IR: push const 0 TOP: 105 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1303 MPC: 23 IR: push const 0 TOP: 0 NEXT: 105 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1304 MPC: 0 IR: push const 0 TOP: 0 NEXT: 105 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 1305 MPC: 1 IR: push const 0 TOP: 0 NEXT: 105 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1306 MPC: 2 IR: eq None TOP: 0 NEXT: 105 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1307 MPC: 15 IR: eq None TOP: 0 NEXT: 105 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1308 MPC: 0 IR: eq None TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 1309 MPC: 1 IR: eq None TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1310 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1311 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1312 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 1313 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1314 MPC: 2 IR: drop None TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1315 MPC: 10 IR: drop None TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1316 MPC: 0 IR: drop None TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 1317 MPC: 1 IR: drop None TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1318 MPC: 2 IR: push const 11 TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1319 MPC: 22 IR: push const 11 TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1320 MPC: 23 IR: push const 11 TOP: -1 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1321 MPC: 0 IR: push const 11 TOP: 11 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 1322 MPC: 1 IR: push const 11 TOP: 11 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1323 MPC: 2 IR: emit None TOP: 11 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1324 MPC: 25 IR: emit None TOP: 11 NEXT: 105 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1325 MPC: 26 IR: emit None TOP: 105 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, dog - bird : noth << '105'
+  DEBUG   machine:simulation    [9: emit] TICK: 1326 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 1327 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 1328 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 1329 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 1330 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 1331 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1332 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1333 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 1334 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 1335 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1336 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1337 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 1338 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 1339 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1340 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1341 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1342 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 1343 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 1344 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1345 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1346 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1347 MPC: 23 IR: push const 10 TOP: 105 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1348 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 1349 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1350 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1351 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: 'n'
+  DEBUG   machine:simulation    [2: read] TICK: 1352 MPC: 0 IR: read None TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 1353 MPC: 1 IR: read None TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1354 MPC: 2 IR: dup None TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1355 MPC: 18 IR: dup None TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1356 MPC: 19 IR: dup None TOP: 11 NEXT: 110 RS: 110 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 1357 MPC: 0 IR: dup None TOP: 110 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 1358 MPC: 1 IR: dup None TOP: 110 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1359 MPC: 2 IR: push const 0 TOP: 110 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1360 MPC: 22 IR: push const 0 TOP: 110 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1361 MPC: 23 IR: push const 0 TOP: 0 NEXT: 110 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1362 MPC: 0 IR: push const 0 TOP: 0 NEXT: 110 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 1363 MPC: 1 IR: push const 0 TOP: 0 NEXT: 110 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1364 MPC: 2 IR: eq None TOP: 0 NEXT: 110 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1365 MPC: 15 IR: eq None TOP: 0 NEXT: 110 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1366 MPC: 0 IR: eq None TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 1367 MPC: 1 IR: eq None TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1368 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1369 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1370 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 1371 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1372 MPC: 2 IR: drop None TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1373 MPC: 10 IR: drop None TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1374 MPC: 0 IR: drop None TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 1375 MPC: 1 IR: drop None TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1376 MPC: 2 IR: push const 11 TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1377 MPC: 22 IR: push const 11 TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1378 MPC: 23 IR: push const 11 TOP: -1 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1379 MPC: 0 IR: push const 11 TOP: 11 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 1380 MPC: 1 IR: push const 11 TOP: 11 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1381 MPC: 2 IR: emit None TOP: 11 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1382 MPC: 25 IR: emit None TOP: 11 NEXT: 110 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1383 MPC: 26 IR: emit None TOP: 110 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, dog - bird : nothi << '110'
+  DEBUG   machine:simulation    [9: emit] TICK: 1384 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 1385 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 1386 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 1387 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 1388 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 1389 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1390 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1391 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 1392 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 1393 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1394 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1395 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 1396 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 1397 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1398 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1399 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1400 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 1401 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 1402 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1403 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1404 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1405 MPC: 23 IR: push const 10 TOP: 110 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1406 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 1407 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1408 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1409 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: 'g'
+  DEBUG   machine:simulation    [2: read] TICK: 1410 MPC: 0 IR: read None TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 1411 MPC: 1 IR: read None TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1412 MPC: 2 IR: dup None TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1413 MPC: 18 IR: dup None TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1414 MPC: 19 IR: dup None TOP: 11 NEXT: 103 RS: 103 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 1415 MPC: 0 IR: dup None TOP: 103 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 1416 MPC: 1 IR: dup None TOP: 103 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1417 MPC: 2 IR: push const 0 TOP: 103 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1418 MPC: 22 IR: push const 0 TOP: 103 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1419 MPC: 23 IR: push const 0 TOP: 0 NEXT: 103 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1420 MPC: 0 IR: push const 0 TOP: 0 NEXT: 103 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 1421 MPC: 1 IR: push const 0 TOP: 0 NEXT: 103 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1422 MPC: 2 IR: eq None TOP: 0 NEXT: 103 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1423 MPC: 15 IR: eq None TOP: 0 NEXT: 103 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1424 MPC: 0 IR: eq None TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 1425 MPC: 1 IR: eq None TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1426 MPC: 2 IR: zjmp const 10 TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1427 MPC: 6 IR: zjmp const 10 TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1428 MPC: 0 IR: zjmp const 10 TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: zjmp] TICK: 1429 MPC: 1 IR: zjmp const 10 TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1430 MPC: 2 IR: drop None TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1431 MPC: 10 IR: drop None TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [7: drop] TICK: 1432 MPC: 0 IR: drop None TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: drop] TICK: 1433 MPC: 1 IR: drop None TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1434 MPC: 2 IR: push const 11 TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1435 MPC: 22 IR: push const 11 TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1436 MPC: 23 IR: push const 11 TOP: -1 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [8: push] TICK: 1437 MPC: 0 IR: push const 11 TOP: 11 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: push] TICK: 1438 MPC: 1 IR: push const 11 TOP: 11 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1439 MPC: 2 IR: emit None TOP: 11 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1440 MPC: 25 IR: emit None TOP: 11 NEXT: 103 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [9: emit] TICK: 1441 MPC: 26 IR: emit None TOP: 103 NEXT: 0 RS: 11 SP: 0 RSP: 1
+  DEBUG   datapath:signal_output OUTPUT: Cat, dog - bird : nothin << '103'
+  DEBUG   machine:simulation    [9: emit] TICK: 1442 MPC: 0 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: emit] TICK: 1443 MPC: 1 IR: emit None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 1444 MPC: 2 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [10: jmp] TICK: 1445 MPC: 5 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [11: jmp] TICK: 1446 MPC: 0 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: jmp] TICK: 1447 MPC: 1 IR: jmp const 11 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1448 MPC: 2 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1449 MPC: 9 IR: ret None TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 1450 MPC: 0 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 1451 MPC: 1 IR: ret None TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1452 MPC: 2 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1453 MPC: 6 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [12: zjmp] TICK: 1454 MPC: 0 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: zjmp] TICK: 1455 MPC: 1 IR: zjmp const 12 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1456 MPC: 2 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1457 MPC: 7 IR: call const 0 TOP: 0 NEXT: 0 RS: 0 SP: -1 RSP: -1
+  DEBUG   machine:simulation    [13: call] TICK: 1458 MPC: 8 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [0: call] TICK: 1459 MPC: 0 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: call] TICK: 1460 MPC: 1 IR: call const 0 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1461 MPC: 2 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1462 MPC: 22 IR: push const 10 TOP: 0 NEXT: 0 RS: 13 SP: -1 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1463 MPC: 23 IR: push const 10 TOP: 103 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [1: push] TICK: 1464 MPC: 0 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: push] TICK: 1465 MPC: 1 IR: push const 10 TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1466 MPC: 2 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [2: read] TICK: 1467 MPC: 24 IR: read None TOP: 10 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   datapath:signal_input  INPUT: ''
+  DEBUG   machine:simulation    [2: read] TICK: 1468 MPC: 0 IR: read None TOP: 0 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: read] TICK: 1469 MPC: 1 IR: read None TOP: 0 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1470 MPC: 2 IR: dup None TOP: 0 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1471 MPC: 18 IR: dup None TOP: 0 NEXT: 0 RS: 13 SP: 0 RSP: 0
+  DEBUG   machine:simulation    [3: dup] TICK: 1472 MPC: 19 IR: dup None TOP: 11 NEXT: 0 RS: 0 SP: 1 RSP: 1
+  DEBUG   machine:simulation    [3: dup] TICK: 1473 MPC: 0 IR: dup None TOP: 0 NEXT: 0 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: dup] TICK: 1474 MPC: 1 IR: dup None TOP: 0 NEXT: 0 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1475 MPC: 2 IR: push const 0 TOP: 0 NEXT: 0 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1476 MPC: 22 IR: push const 0 TOP: 0 NEXT: 0 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1477 MPC: 23 IR: push const 0 TOP: 0 NEXT: 0 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [4: push] TICK: 1478 MPC: 0 IR: push const 0 TOP: 0 NEXT: 0 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: push] TICK: 1479 MPC: 1 IR: push const 0 TOP: 0 NEXT: 0 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1480 MPC: 2 IR: eq None TOP: 0 NEXT: 0 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1481 MPC: 15 IR: eq None TOP: 0 NEXT: 0 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [5: eq] TICK: 1482 MPC: 0 IR: eq None TOP: 0 NEXT: 0 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: eq] TICK: 1483 MPC: 1 IR: eq None TOP: 0 NEXT: 0 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1484 MPC: 2 IR: zjmp const 10 TOP: 0 NEXT: 0 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [6: zjmp] TICK: 1485 MPC: 6 IR: zjmp const 10 TOP: 0 NEXT: 0 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [10: zjmp] TICK: 1486 MPC: 0 IR: zjmp const 10 TOP: 0 NEXT: 0 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [11: zjmp] TICK: 1487 MPC: 1 IR: zjmp const 10 TOP: 0 NEXT: 0 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [11: push] TICK: 1488 MPC: 2 IR: push const 1 TOP: 0 NEXT: 0 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [11: push] TICK: 1489 MPC: 22 IR: push const 1 TOP: 0 NEXT: 0 RS: 13 SP: 1 RSP: 0
+  DEBUG   machine:simulation    [11: push] TICK: 1490 MPC: 23 IR: push const 1 TOP: 0 NEXT: 0 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [11: push] TICK: 1491 MPC: 0 IR: push const 1 TOP: 1 NEXT: 0 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [12: push] TICK: 1492 MPC: 1 IR: push const 1 TOP: 1 NEXT: 0 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1493 MPC: 2 IR: ret None TOP: 1 NEXT: 0 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [12: ret] TICK: 1494 MPC: 9 IR: ret None TOP: 1 NEXT: 0 RS: 13 SP: 2 RSP: 0
+  DEBUG   machine:simulation    [13: ret] TICK: 1495 MPC: 0 IR: ret None TOP: 1 NEXT: 0 RS: 0 SP: 2 RSP: -1
+  DEBUG   machine:simulation    [14: ret] TICK: 1496 MPC: 1 IR: ret None TOP: 1 NEXT: 0 RS: 0 SP: 2 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1497 MPC: 2 IR: zjmp const 12 TOP: 1 NEXT: 0 RS: 0 SP: 2 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1498 MPC: 6 IR: zjmp const 12 TOP: 1 NEXT: 0 RS: 0 SP: 2 RSP: -1
+  DEBUG   machine:simulation    [14: zjmp] TICK: 1499 MPC: 0 IR: zjmp const 12 TOP: 1 NEXT: 0 RS: 0 SP: 2 RSP: -1
+  DEBUG   machine:simulation    [15: zjmp] TICK: 1500 MPC: 1 IR: zjmp const 12 TOP: 1 NEXT: 0 RS: 0 SP: 2 RSP: -1
+  DEBUG   machine:simulation    [15: halt] TICK: 1501 MPC: 2 IR: halt None TOP: 1 NEXT: 0 RS: 0 SP: 2 RSP: -1
+  DEBUG   machine:simulation    [15: halt] TICK: 1502 MPC: 4 IR: halt None TOP: 1 NEXT: 0 RS: 0 SP: 2 RSP: -1
+  DEBUG   machine:simulation    OUTPUT: Cat, dog - bird : nothing

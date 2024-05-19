@@ -163,13 +163,18 @@ class DataPath:
 
     def signal_input(self, port: int):
         input_buffer = self._io[port]
-        self.input_value = input_buffer[0]
+        in_value = input_buffer[0]
+        self.input_value = in_value
+        if ord(in_value) == 0:
+            in_value = ""
         self._io[port] = input_buffer[1:]
-        logging.debug(f"INPUT: '{self.input_value}'")
+        logging.debug(f"INPUT: '{in_value}'")
 
     def signal_output(self, port: int, value: int):
         output_buffer = self._io[port] + [value]
-        logging.debug(f"OUTPUT: {self._io[port]} << '{value}'")
+        logging.debug(
+            f"OUTPUT: {''.join(map(lambda x: chr(x) if x > 9 and x < 256 else str(x), self._io[port]))} << '{value}'"
+        )
         self._io[port] = output_buffer
 
     def signal_memory_read(self, addr: int):

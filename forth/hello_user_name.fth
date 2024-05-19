@@ -1,7 +1,7 @@
 variable what_name 16 allocate 
-variable hello_string 7 allocate
+variable hello_str 7 allocate
 
-: input_value
+: input_val
     10 read
     dup 0 = if 11 emit else 
     1
@@ -29,7 +29,7 @@ dup 80 ! \ P
 ;
 
 : set_hello 
-hello_string 1 +
+hello_str 1 +
 dup 72 ! \ H
 1 + dup 101 ! \ e
 1 + dup 108 ! \ l
@@ -53,11 +53,7 @@ set_what_name
 
 what_name what_name @
 print_var
-hello_string hello_string @
+hello_str hello_str @
 print_var
 
-
-
-begin input_value until
-
-
+begin input_val until
