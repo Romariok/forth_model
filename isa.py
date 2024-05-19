@@ -6,6 +6,7 @@ from enum import Enum
 STACK_SIZE = 1024
 MEMORY_SIZE = 2048
 
+
 class ArgType(str, Enum):
     CONST = "const"
     ADD = "add"
@@ -13,6 +14,7 @@ class ArgType(str, Enum):
 
     def __str__(self):
         return str(self.value)
+
 
 class Arg:
     argtype: ArgType
@@ -82,7 +84,8 @@ class Term:
         self.converted = False
 
     def __str__(self):
-       return f"{self.number}  {self.name}"
+        return f"{self.number}  {self.name}"
+
 
 class Instruction:
     """Описание инструкции процессора"""
@@ -98,9 +101,10 @@ class Instruction:
     def __str__(self):
         return f"{self.opcode} {self.arg}"
 
+
 def write_code(filename: str, code: list[Instruction], memory):
     """Записать память и код из инструкций в файл."""
-    ans = dict({"memory": memory, "code":code})
+    ans = dict({"memory": memory, "code": code})
     with open(filename, "w", encoding="utf-8") as file:
         json.dump(ans, file, indent=4, default=lambda o: o.__dict__)
 
@@ -112,7 +116,6 @@ def read_code(filename: str) -> list[Instruction]:
     code: list[Instruction] = []
     memory = json_objects["memory"]
     for instruction_json in json_objects["code"]:
-
         opcode = Opcode(instruction_json["command"])
         arg = None
         try:

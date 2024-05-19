@@ -28,7 +28,7 @@ def simulation(code: list, input_tokens: list, memory: dict):
         logging.warning("Tick Limit!")
 
     out = "".join(map(lambda x: chr(x) if x > 9 and x <= 255 else str(x), datapath._io[11]))
-    logging.debug("OUTPUT: "+ out)
+    logging.debug("OUTPUT: " + out)
     return out, instructions, control_unit.current_tick()
 
 
@@ -47,9 +47,7 @@ def main(code_file: str, input_file: str):
 if __name__ == "__main__":
     logging.getLogger().setLevel(logging.DEBUG)
 
-    assert (  # noqa: PT018
-        len(sys.argv) <=3 and len(sys.argv) >=2
-    ), "Invalid usage: python3 machine.py <code_file> [<input_file>]"
+    assert len(sys.argv) <= 3 and len(sys.argv) >= 2, "Invalid usage: python3 machine.py <code_file> [<input_file>]"
     if len(sys.argv) == 2:
         main(sys.argv[1], None)
     else:

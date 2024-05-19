@@ -157,5 +157,3 @@ class ControlUnit:
             f"RS: {self.datapath.return_stack[self.datapath.return_stack_pointer]} SP: {self.datapath.stack_pointer} "
             f"RSP: {self.datapath.return_stack_pointer}"
         )
-
-

@@ -171,16 +171,7 @@ mc_memory = [
         MUX.SP_INC,
         Latch.SP,
     ],
-    [
-        MUX.MPC_ZERO,
-        Latch.MPC,
-        MUX.SP_INC,
-        Latch.SP,
-        MUX.TOS_RETURN_STACK,
-        Latch.TOP,
-        MUX.RSP_DEC,
-        Latch.RSP
-    ],
+    [MUX.MPC_ZERO, Latch.MPC, MUX.SP_INC, Latch.SP, MUX.TOS_RETURN_STACK, Latch.TOP, MUX.RSP_DEC, Latch.RSP],
     # 30 LOAD
     [MUX.MPC_ZERO, Latch.MPC, MEMORY.RD, MUX.TOS_MEMORY, Latch.TOP],
     # 31 STORE
