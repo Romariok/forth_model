@@ -48,7 +48,7 @@ if __name__ == "__main__":
     logging.getLogger().setLevel(logging.DEBUG)
 
     assert len(sys.argv) <= 3, "Invalid usage: python3 machine.py <code_file> [<input_file>]"
-    assert len(sys.argv) >=2, "Invalid usage: python3 machine.py <code_file> [<input_file>]"
+    assert len(sys.argv) >= 2, "Invalid usage: python3 machine.py <code_file> [<input_file>]"
     if len(sys.argv) == 2:
         main(sys.argv[1], None)
     else:
