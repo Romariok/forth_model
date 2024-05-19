@@ -1,0 +1,258 @@
+{
+    "memory": {},
+    "code": [
+        {
+            "index": 0,
+            "command": "jmp",
+            "arg": 39
+        },
+        {
+            "index": 1,
+            "command": "push",
+            "arg": 3
+        },
+        {
+            "index": 2,
+            "command": "load"
+        },
+        {
+            "index": 3,
+            "command": "push",
+            "arg": 4000000
+        },
+        {
+            "index": 4,
+            "command": "gr"
+        },
+        {
+            "index": 5,
+            "command": "zjmp",
+            "arg": 37
+        },
+        {
+            "index": 6,
+            "command": "drop"
+        },
+        {
+            "index": 7,
+            "command": "push",
+            "arg": 3
+        },
+        {
+            "index": 8,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 9,
+            "command": "load"
+        },
+        {
+            "index": 10,
+            "command": "push",
+            "arg": 2
+        },
+        {
+            "index": 11,
+            "command": "load"
+        },
+        {
+            "index": 12,
+            "command": "add"
+        },
+        {
+            "index": 13,
+            "command": "store"
+        },
+        {
+            "index": 14,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 15,
+            "command": "push",
+            "arg": 2
+        },
+        {
+            "index": 16,
+            "command": "load"
+        },
+        {
+            "index": 17,
+            "command": "store"
+        },
+        {
+            "index": 18,
+            "command": "push",
+            "arg": 3
+        },
+        {
+            "index": 19,
+            "command": "load"
+        },
+        {
+            "index": 20,
+            "command": "push",
+            "arg": 2
+        },
+        {
+            "index": 21,
+            "command": "mod"
+        },
+        {
+            "index": 22,
+            "command": "push",
+            "arg": 0
+        },
+        {
+            "index": 23,
+            "command": "gr"
+        },
+        {
+            "index": 24,
+            "command": "zjmp",
+            "arg": 32
+        },
+        {
+            "index": 25,
+            "command": "drop"
+        },
+        {
+            "index": 26,
+            "command": "push",
+            "arg": 0
+        },
+        {
+            "index": 27,
+            "command": "dup"
+        },
+        {
+            "index": 28,
+            "command": "load"
+        },
+        {
+            "index": 29,
+            "command": "push",
+            "arg": 3
+        },
+        {
+            "index": 30,
+            "command": "load"
+        },
+        {
+            "index": 31,
+            "command": "add"
+        },
+        {
+            "index": 32,
+            "command": "store"
+        },
+        {
+            "index": 33,
+            "command": "push",
+            "arg": 2
+        },
+        {
+            "index": 34,
+            "command": "push",
+            "arg": 3
+        },
+        {
+            "index": 35,
+            "command": "load"
+        },
+        {
+            "index": 36,
+            "command": "store"
+        },
+        {
+            "index": 37,
+            "command": "jmp",
+            "arg": 38
+        },
+        {
+            "index": 38,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 39,
+            "command": "ret"
+        },
+        {
+            "index": 40,
+            "command": "push",
+            "arg": 0
+        },
+        {
+            "index": 41,
+            "command": "push",
+            "arg": 0
+        },
+        {
+            "index": 42,
+            "command": "store"
+        },
+        {
+            "index": 43,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 44,
+            "command": "push",
+            "arg": 0
+        },
+        {
+            "index": 45,
+            "command": "store"
+        },
+        {
+            "index": 46,
+            "command": "push",
+            "arg": 2
+        },
+        {
+            "index": 47,
+            "command": "push",
+            "arg": 1
+        },
+        {
+            "index": 48,
+            "command": "store"
+        },
+        {
+            "index": 49,
+            "command": "call",
+            "arg": 0
+        },
+        {
+            "index": 50,
+            "command": "zjmp",
+            "arg": 48
+        },
+        {
+            "index": 51,
+            "command": "push",
+            "arg": 0
+        },
+        {
+            "index": 52,
+            "command": "load"
+        },
+        {
+            "index": 53,
+            "command": "push",
+            "arg": 11
+        },
+        {
+            "index": 54,
+            "command": "emit"
+        },
+        {
+            "index": 55,
+            "command": "halt"
+        }
+    ]
+}

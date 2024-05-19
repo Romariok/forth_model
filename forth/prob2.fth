@@ -1,26 +1,32 @@
-variable result 0
-variable first 1
-variable second 2
-variable temp 0
-variable two 2
-:_start
-do
-@ second
-! temp
-+ first
-! second
-/ two
-* two
-if @=second
-@+! result
-@ temp
-! first
-@ second
-if @>4000000
-leave
-loop
-@ result
-- second
-+ two
+variable result 
+variable current 
+variable next
+variable temp
+
+: next_fib
+temp @ 4000000 > \ Проверка на число 
+if 
+temp current @ next @ + ! \ Следующее число
+current next @ !
+
+temp @ 2 mod 0 > \ Если число четное, то складываем
+if 
+result dup @ temp @ + !
+then
+
+next temp @ !
+
+else
+1 \ Кладём не 0, чтобы выйти из цикла
+then
 ;
-;#TODO переделать
+
+result 0 !
+current 0 !
+next 1 !
+
+begin \ цикл, который генерирует числа
+next_fib
+until
+
+result @ 11 emit  \ вывод результата
