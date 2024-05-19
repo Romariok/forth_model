@@ -25,7 +25,6 @@ def test_translator_and_machine(golden, caplog):
 
         with contextlib.redirect_stdout(io.StringIO()) as stdout:
             translator.main(source, target)
-            translator.functions = {}
             print("============================================================")
             machine.main(target, input_stream)
 

@@ -323,6 +323,11 @@ def translate(lines):
 
 
 def main(source, target):
+    global variable_current_address, variables, memory, functions
+    variables = {}
+    variable_current_address = 0
+    functions = {}
+    memory = {}
     with open(source, encoding="utf-8") as f:
         source = f.read().splitlines()
     code = translate(source)
