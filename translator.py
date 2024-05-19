@@ -169,7 +169,7 @@ def set_allocate(terms: list[Term], term_num: int) -> None:
         assert 1 <= allocate_size <= 100, "Incorrect allocate size at " + str(term.word_number - 1)
         variable_current_address += allocate_size
     except ValueError:
-        raise BadAllocationSizeError(term.word_number - 1)
+        raise BadAllocationSizeError(term.word_number - 1) from None
 
 
 def set_conditional(terms: list[Term]) -> None:
