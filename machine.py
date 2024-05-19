@@ -39,7 +39,6 @@ def main(code_file: str, input_file: str):
     else:
         with open(input_file) as f:
             input_tokens = [*list(f.read()), chr(0)]
-    print(input_tokens)
     output, instruction_counter, ticks = simulation(code, input_tokens, memory)
     print(f"instr_counter: {instruction_counter} ticks: {ticks}")
 
