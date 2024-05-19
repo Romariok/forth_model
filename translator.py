@@ -215,9 +215,9 @@ def fix_addresses(term_instructions: list[list[Instruction]]) -> list[Instructio
         if term_instruction is not None:
             for instruction in term_instruction:
                 for param_num, param in enumerate(instruction.arg):
-                    if param.argType is ArgType.ADD:
+                    if param.argtype is ArgType.ADD:
                         instruction.arg[param_num].value = term_lens[param.value] - 1
-                        instruction.arg[param_num].argType = ArgType.CONST
+                        instruction.arg[param_num].argtype = ArgType.CONST
                 final_instructions.append(instruction)
 
     return final_instructions
@@ -282,9 +282,9 @@ def term_to_instruction(term: Term) -> list(Instruction):
     if term.operand is not None and instructions is not None:
         for instruction in instructions:
             for param_num, param in enumerate(instruction.arg):
-                if param.argType == ArgType.UNDEFINED:
+                if param.argtype == ArgType.UNDEFINED:
                     instruction.arg[param_num].value = term.operand
-                    instruction.arg[param_num].argType = ArgType.ADD
+                    instruction.arg[param_num].argtype = ArgType.ADD
 
     if instructions is None:
         if term.name in functions or term.name in variables or term.converted:
